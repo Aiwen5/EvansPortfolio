@@ -1,3 +1,53 @@
 @import 'tailwindcss/base';
+
+/* @font-face {
+	font-family: 'Bricolage Grotesque';
+	src: url('/fonts/BricolageGrotesque-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Bricolage Grotesque';
+	src: url('/fonts/BricolageGrotesque-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'PT Sans';
+	src: url('/fonts/PTSans-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'PT Sans';
+	src: url('/fonts/PTSans-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+} */
+
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+/* global styles */
+:root {
+	--primary-accent: #10312b; /* Pantone 627 C */
+	--primary-accent-light: #e5e1e6; /* Pantone 663 C */
+	--secondary-accent: #efc2b3; /* Pantone 489 C */
+	--card-bg: rgba(16, 49, 43, 0.1); /* 10% opacity of primary accent */
+	--background: #f7f7f7; /* General background color */
+}
+
+/* Optionally apply global body styles */
+body {
+	font-family: 'PT Sans', sans-serif;
+	color: var(--primary-accent);
+	background-color: var(--primary-accent-light);
+}
+
+/* Custom class for card backgrounds */
+.card-bg {
+	background-color: var(--card-bg);
+}

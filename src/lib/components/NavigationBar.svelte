@@ -65,7 +65,7 @@
   >
     <img
       loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/6474fb1dc463461d82ee0b8b3f466c9e3b91144b1b9e42982ed02dfeffec2bcc?placeholderIfAbsent=true&apiKey=60a4f8d4994c49adb19fe749d66675dc"
+      src="../images/icons/moon-bold.svg"
       alt=""
       class="object-contain shrink-0 self-stretch my-auto w-9 aspect-square"
     />
