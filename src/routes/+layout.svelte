@@ -1,7 +1,11 @@
 <script lang="ts">
-	import '../app.css';
-	import NavigationBar from '$lib/components/NavigationBar.svelte';
-	let { children } = $props();
+  import '../app.css';
+  import NavigationBar from '$lib/components/NavigationBar.svelte';
 </script>
-<NavigationBar />
-{@render children()}
+
+<div class="layout-grid">
+  <div class="nav-wrapper">
+    <NavigationBar />
+  </div>
+  <slot />
+</div>

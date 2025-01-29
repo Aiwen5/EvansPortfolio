@@ -1,14 +1,14 @@
 [
   {
-      "slug": "project-1",
-      "title": "Project 1",
-      "description": "This is the first project.",
-      "image": "/images/project-1.jpg"
+    "slug": "fathom-summer-series",
+    "title": "Fathom Summer Series",
+    "image": "/images/can-design/ThreeCanMockup.png",
+    "categories": ["Graphic Design", "Packaging", "Branding"]
   },
   {
-      "slug": "project-2",
-      "title": "Project 2",
-      "description": "This is the second project.",
-      "image": "/images/project-2.jpg"
+    "slug": "coltrane-ellington",
+    "title": "Coltrane and Ellington",
+    "image": "/images/can-design/DawnRiseDieline.png",
+    "categories": ["Graphic Design", "Poster"]
   }
 ]

@@ -1,33 +1,4 @@
 @import 'tailwindcss/base';
-
-/* @font-face {
-	font-family: 'Bricolage Grotesque';
-	src: url('/fonts/BricolageGrotesque-Regular.ttf') format('truetype');
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Bricolage Grotesque';
-	src: url('/fonts/BricolageGrotesque-Bold.ttf') format('truetype');
-	font-weight: 700;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'PT Sans';
-	src: url('/fonts/PTSans-Regular.ttf') format('truetype');
-	font-weight: 400;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'PT Sans';
-	src: url('/fonts/PTSans-Bold.ttf') format('truetype');
-	font-weight: 700;
-	font-style: normal;
-} */
-
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
@@ -40,14 +11,71 @@
 	--background: #f7f7f7; /* General background color */
 }
 
-/* Optionally apply global body styles */
+html,
 body {
-	font-family: 'PT Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	width: 100%;
+	overflow-x: hidden;
 	color: var(--primary-accent);
 	background-color: var(--primary-accent-light);
 }
 
-/* Custom class for card backgrounds */
-.card-bg {
-	background-color: var(--card-bg);
+.layout-grid {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	max-width: 1200px;
+	min-height: 100vh;
+	margin: 0 auto;
+	gap: 30px;
+	padding: 0 160px;
+}
+
+@media (max-width: 1024px) {
+	/* Tablet */
+	.layout-grid {
+		grid-template-columns: repeat(8, 1fr);
+		padding: 0 80px;
+	}
+}
+
+@media (max-width: 768px) {
+	/* Mobile */
+	.layout-grid {
+		grid-template-columns: repeat(4, 1fr);
+		padding: 0 20px;
+	}
+}
+
+.nav-wrapper {
+	grid-column: span 12;
+}
+
+@media (max-width: 1024px) {
+	.nav-wrapper {
+		grid-column: span 8;
+	}
+}
+
+@media (max-width: 768px) {
+	.nav-wrapper {
+		grid-column: span 4;
+	}
+}
+
+.layout-grid > slot {
+	grid-column: span 12;
+}
+
+@media (max-width: 1024px) {
+	.layout-grid > slot {
+		grid-column: span 8;
+	}
+}
+
+@media (max-width: 768px) {
+	.layout-grid > slot {
+		grid-column: span 4;
+	}
 }

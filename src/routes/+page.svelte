@@ -1,15 +1,26 @@
 <script lang="ts">
   import projects from '$lib/data/projects.json';
+  import ProjectCard from '$lib/components/ProjectCard.svelte';
 </script>
 
-<h1>My Portfolio</h1>
-<div>
+<div class="projects-grid">
   {#each projects as project}
-      <a href={`/projects/${project.slug}`}>
-          <div>
-              <h2>{project.title}</h2>
-              <p>{project.description}</p>
-          </div>
-      </a>
+    <ProjectCard {project} />
   {/each}
 </div>
+
+<style lang="css">
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    grid-column: span 12;
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      gap: 1.5rem;
+    }
+  }
+</style>

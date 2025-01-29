@@ -8,7 +8,6 @@
 
 {#if project}
   <h1>{project.title}</h1>
-  <p>{project.description}</p>
   <img src={project.image} alt={project.title} />
 {:else}
   <p>Project not found</p>
