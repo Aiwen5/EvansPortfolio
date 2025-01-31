@@ -2,7 +2,8 @@
   import { onMount } from 'svelte';
 
   let isMenuOpen = false;
-  
+  let currentPath = '';
+
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       isMenuOpen = !isMenuOpen;
@@ -17,6 +18,13 @@
   ];
 
   onMount(() => {
+    currentPath = window.location.pathname;
+
+
+    if (currentPath === '' || currentPath === '/' || currentPath === '/index.html') {
+      currentPath = '/';
+    }
+
     const navItems = document.querySelectorAll('nav a');
     navItems.forEach(item => {
       item.setAttribute('tabindex', '0');
@@ -41,7 +49,7 @@
     {#each navigationItems as item}
       <a
         href={item.href}
-        class="nav-item"
+        class="nav-item {currentPath === item.href ? 'active' : ''}"
         role="menuitem"
         on:keydown={handleKeyPress}
       >
@@ -56,16 +64,17 @@
 </nav>
 
 <style>
-  /* Navigation Bar */
+  /* Nav Bar */
   .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 1.25em;
+    padding-right: 5em;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
     width: 100%;
-    background: rgba(16, 49, 43, 0.1); /* 10% opacity of primary accent */
+    background: var(--card-bg);
   }
 
   /* Logo Section */
@@ -83,7 +92,7 @@
 
   .logo-text {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: 600;
   }
 
   /* Navigation Links */
@@ -95,19 +104,23 @@
   .nav-links {
     display: flex;
     gap: 40px;
+
+  }
+  .nav-item.active {
+    color: var(--primary-accent);
   }
 
   .nav-item {
     text-decoration: none;
     font-size: 1.2rem;
-    font-weight: 500;
-    color: #10312B;
+    font-weight: 1000;
+    color: var(--hover-accent);
     transition: color 0.3s ease;
   }
 
   .nav-item:hover,
   .nav-item:focus {
-    color: #EFC2B3; /* Secondary accent */
+    color: var(--primary-accent);
   }
 
   /* Theme Toggle Button */

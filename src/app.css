@@ -17,15 +17,24 @@
 	font-style: normal;
 }
 
-/* global styles */
+/* 🌞 Default Light Mode */
 :root {
 	--primary-accent: #10312b; /* Pantone 627 C */
 	--primary-accent-light: #e5e1e6; /* Pantone 663 C */
 	--secondary-accent: #efc2b3; /* Pantone 489 C */
+	--hover-accent: rgba(16, 49, 43, 0.55); /* 55% opacity of primary accent */
 	--card-bg: rgba(16, 49, 43, 0.1); /* 10% opacity of primary accent */
-	--background: #f7f7f7; /* General background color */
 	--font-body: 'DM Sans', sans-serif;
 	--font-heading: 'Nohemi', sans-serif;
+}
+
+/* 🌑 Dark Mode */
+.dark-mode {
+	--primary-accent: #e5e1e6; /* Swap primary colors */
+	--primary-accent-light: #10312b;
+	--secondary-accent: #efc2b3;
+	--card-bg: rgba(229, 225, 230, 0.1); /* Adjusted for dark mode */
+	--background: #06100f; /* Dark background */
 }
 
 html,
@@ -38,6 +47,9 @@ body {
 	color: var(--primary-accent);
 	background-color: var(--primary-accent-light);
 	font-family: var(--font-body);
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease;
 }
 
 h1,
