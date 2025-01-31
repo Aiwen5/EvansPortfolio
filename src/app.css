@@ -2,6 +2,21 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* Font-face definitions */
+@font-face {
+	font-family: 'DM Sans';
+	src: url('/fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nohemi';
+	src: url('/fonts/Nohemi-VF.ttf') format('truetype');
+	font-weight: 350;
+	font-style: normal;
+}
+
 /* global styles */
 :root {
 	--primary-accent: #10312b; /* Pantone 627 C */
@@ -9,6 +24,8 @@
 	--secondary-accent: #efc2b3; /* Pantone 489 C */
 	--card-bg: rgba(16, 49, 43, 0.1); /* 10% opacity of primary accent */
 	--background: #f7f7f7; /* General background color */
+	--font-body: 'DM Sans', sans-serif;
+	--font-heading: 'Nohemi', sans-serif;
 }
 
 html,
@@ -20,15 +37,25 @@ body {
 	overflow-x: hidden;
 	color: var(--primary-accent);
 	background-color: var(--primary-accent-light);
+	font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-heading);
 }
 
 .layout-grid {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	max-width: 1200px;
+	max-width: 1600px;
 	min-height: 100vh;
 	margin: 0 auto;
-	gap: 30px;
+	gap: 2rem;
 	padding: 0 160px;
 }
 
@@ -50,18 +77,7 @@ body {
 
 .nav-wrapper {
 	grid-column: span 12;
-}
-
-@media (max-width: 1024px) {
-	.nav-wrapper {
-		grid-column: span 8;
-	}
-}
-
-@media (max-width: 768px) {
-	.nav-wrapper {
-		grid-column: span 4;
-	}
+	margin-top: 2rem;
 }
 
 .layout-grid > slot {

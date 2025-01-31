@@ -6,7 +6,7 @@
 <div class="card">
   <img src={project.image} alt={project.title} class="card-image" />
   <div class="card-content">
-    <h2>{project.title}</h2>
+    <h2 class="project-title">{project.title}</h2>
     <div class="chip-container">
       {#each project.categories as category}
         <CategoryChip label={category} />
@@ -21,24 +21,30 @@
     background: var(--card-bg);
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
-    padding: 1.5rem;
+    padding: 3rem 3.5rem 3rem 3.5rem;
     margin-bottom: 1.5rem;
     width: 100%;
-    height: 312px;
+    height: 22rem;
+    align-items: center;
   }
 
   .card-image {
-    width: 300px;
     height: 100%;
     margin-right: 2.5rem;
     object-fit: cover;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
-    max-width: 100%;
+    width: 40%;
   }
 
   .card-content {
     flex: 1;
+    width: 60%;
+  }
+
+  .project-title {
+    font-size: 3rem;
+    font-weight: 600;
   }
 
   .chip-container {
