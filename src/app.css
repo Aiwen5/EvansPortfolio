@@ -23,7 +23,7 @@
 	--primary-accent-light: #e5e1e6; /* Pantone 663 C */
 	--secondary-accent: #efc2b3; /* Pantone 489 C */
 	--hover-accent: rgba(16, 49, 43, 0.55); /* 55% opacity of primary accent */
-	--card-bg: rgba(16, 49, 43, 0.1); /* 10% opacity of primary accent */
+	--card-bg: #d0cfd3;
 	--font-body: 'DM Sans', sans-serif;
 	--font-heading: 'Nohemi', sans-serif;
 }
