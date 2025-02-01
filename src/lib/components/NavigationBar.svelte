@@ -19,8 +19,6 @@
 
   onMount(() => {
     currentPath = window.location.pathname;
-
-
     if (currentPath === '' || currentPath === '/' || currentPath === '/index.html') {
       currentPath = '/';
     }
@@ -33,19 +31,16 @@
 </script>
 
 <nav aria-label="Main navigation" class="navbar">
+  <!-- Logo -->
   <a href="/" class="logo-link">
     <div class="logo-container" role="banner">
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/476bc41acd8d8f8d062f7ec5b2068b977f6892e48270f5e3497e7eaec5a10829?placeholderIfAbsent=true&apiKey=60a4f8d4994c49adb19fe749d66675dc"
-        alt="Evan Schatz Logo"
-        class="logo"
-      />
+      <img src="/Logo.svg" alt="Evan Schatz Logo" class="logo" />
       <div class="logo-text">Evan Schatz</div>
     </div>
   </a>
 
-  <div class="nav-links" role="menubar">
+  <!-- Navigation Links -->
+  <div class="nav-links stroke" role="menubar">
     {#each navigationItems as item}
       <a
         href={item.href}
@@ -61,106 +56,194 @@
   <button type="button" aria-label="Toggle theme" class="theme-toggle" on:keydown={handleKeyPress}>
     <img loading="lazy" src="../images/icons/moon-bold.svg" alt="Toggle Theme" class="theme-icon" />
   </button>
+
+  <!-- Hamburger Icon -->
+  <button class="menu-toggle" aria-label="Toggle menu" on:click={() => isMenuOpen = !isMenuOpen}>
+    <img src="/images/icons/list-bold.svg" alt="Menu Icon" class="menu-icon" />
+  </button>
+
+  <!-- Mobile Menu -->
+  <div class="nav-links-mobile {isMenuOpen ? 'open' : ''}" role="menubar">
+    {#each navigationItems as item}
+      <a
+        href={item.href}
+        class="nav-item {currentPath === item.href ? 'active' : ''}"
+        role="menuitem"
+        on:keydown={handleKeyPress}
+      >
+        {item.text}
+      </a>
+    {/each}
+
+    <button type="button" aria-label="Toggle theme" class="theme-toggle-mobile" on:keydown={handleKeyPress}>
+      <img loading="lazy" src="../images/icons/moon-bold.svg" alt="Toggle Theme" class="theme-icon" />
+    </button>
+  </div>
 </nav>
 
 <style>
-  /* Nav Bar */
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25em;
-    padding-right: 5em;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    width: 100%;
-    background: var(--card-bg);
-  }
+/* Nav Bar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25em 5em 1.25em 1.25em;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  width: 100%;
+  background: var(--card-bg);
+  position: relative;
+  z-index: 10;
+}
 
-  /* Logo Section */
-  .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+/* Logo Section */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-  .logo {
-    width: 33px;
-    height: auto;
-    object-fit: contain;
-  }
+.logo {
+  width: 33px;
+  height: auto;
+  object-fit: contain;
+}
 
-  .logo-text {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
-  /* Navigation Links */
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 40px;
+}
 
-  .nav-item,
-  .logo-text {
-    font-family: var(--font-heading);
-  }
+.nav-item {
+  font-family: var(--font-heading);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--hover-accent);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Underline Stroke Effect */
+.nav-item:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  height: 2px;
+  background: var(--primary-accent);
+  transition: width 0.4s ease;
+}
+
+.nav-item:hover:after {
+  width: 100%;
+}
+
+.nav-item.active {
+  color: var(--primary-accent);
+}
+
+.nav-item:hover, .nav-item:focus {
+  color: var(--primary-accent);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.theme-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* Mobile Menu */
+.nav-links-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  background: var(--card-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  z-index: 9;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 0;
+}
+
+.nav-links-mobile.open {
+  max-height: 400px;
+  padding: 1rem 0;
+}
+
+.nav-links-mobile .nav-item {
+  margin: 0.5rem 0;
+}
+
+/* Theme Toggle in Mobile Menu */
+.theme-toggle-mobile {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.theme-toggle-mobile .theme-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .nav-links {
-    display: flex;
-    gap: 40px;
-
-  }
-  .nav-item.active {
-    color: var(--primary-accent);
+    display: none; /* Hide desktop links */
   }
 
-  .nav-item {
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 1000;
-    color: var(--hover-accent);
-    transition: color 0.3s ease;
+  .menu-toggle {
+    display: block; /* Show hamburger icon */
   }
 
-  .nav-item:hover,
-  .nav-item:focus {
-    color: var(--primary-accent);
-  }
-
-  /* Theme Toggle Button */
   .theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 5px;
+    display: none;
   }
-
-  .theme-icon {
-    width: 36px;
-    height: 36px;
-    object-fit: contain;
-  }
-
-  /* Querys */
-  @media (max-width: 1024px) {
-    .nav-links {
-      gap: 30px;
-    }
-
-    .nav-item {
-      font-size: 1rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: column;
-      gap: 15px;
-      padding: 15px;
-    }
-
-    .nav-links {
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-  }
+}
 </style>
