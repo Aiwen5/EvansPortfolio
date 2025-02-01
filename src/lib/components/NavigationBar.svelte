@@ -142,7 +142,11 @@
   /* Querys */
   @media (max-width: 1024px) {
     .nav-links {
-      gap: 20px;
+      gap: 30px;
+    }
+
+    .nav-item {
+      font-size: 1rem;
     }
   }
 

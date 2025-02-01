@@ -19,8 +19,4 @@
     white-space: nowrap;
   }
 
-  .chip:hover {
-    background-color: var(--secondary-accent);
-    color: white;
-  }
 </style>
