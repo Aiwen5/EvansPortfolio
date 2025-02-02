@@ -1,41 +1,25 @@
 <script lang="ts">
   import CategoryChip from '$lib/components/CategoryChip.svelte';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
-  import ExternalLinkButton from '$lib/components/ExternalLinkButton.svelte';  // <-- Import the button component
-  import projects from '$lib/data/projects.json';
-  import { page } from '$app/stores'; 
+  import ExternalLinkButton from '$lib/components/ExternalLinkButton.svelte';
+  import LazyImage from '$lib/components/LazyImage.svelte';
 
-  let slug: string;
-  $: slug = $page.params.slug;
-
-  let project;
-  $: project = projects.find((p: { slug: string }) => p.slug === slug);
-
-  let nextProject: { slug: string, title: string, categories: string[], image: string, overview: string, year: number, tools: string[] } | undefined;
-  $: if (project) {
-    const currentIndex = projects.findIndex(p => p.slug === project.slug);
-    nextProject = projects[(currentIndex + 1) % projects.length];
-  }
+  export let data;
+  const { project, nextProject } = data;
 </script>
 
 {#if project}
   <div class="project-container">
-    <!-- Project Title -->
     <h1 class="project-title">{project.title}</h1>
-
-    <!-- Categories using CategoryChip component -->
     <div class="categories">
       {#each project.categories as category}
         <CategoryChip label={category} />
       {/each}
     </div>
-
-    <!-- Thumbnail Image -->
     <div class="image-container">
-      <img src={project.image} alt={project.title} />
+      <LazyImage src={project.image} alt={project.title} />
     </div>
 
-    <!-- Project Details Grid -->
     <div class="details-grid">
       <div class="overview">
         <h2>Overview</h2>
@@ -47,13 +31,10 @@
       </div>
     </div>
 
-    <!-- Tools -->
     <div class="tools">
       <div class="tools-header">
         <h2>Tools</h2>
-
         {#if project.externalLink}
-          <!-- Button for Desktop -->
           <div class="external-link-desktop">
             <ExternalLinkButton link={project.externalLink} />
           </div>
@@ -68,13 +49,11 @@
     </div>
 
     {#if project.externalLink}
-      <!-- Button for Mobile, displayed after tools -->
       <div class="external-link-mobile">
         <ExternalLinkButton link={project.externalLink} />
       </div>
     {/if}
 
-    <!-- Additional Images Section -->
     <div class="additional-images">
       {#if project.images}
         <div class="dieline-images">
@@ -91,7 +70,6 @@
       {/if}
     </div>
 
-    <!-- Up Next Section -->
     <div class="up-next">
       <h2 class="next-text">Up Next</h2>
       {#if nextProject}
@@ -132,11 +110,6 @@
     justify-content: center;
   }
 
-  .image-container img {
-    object-fit: cover;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-  }
 
   .details-grid {
     grid-column: span 12;
@@ -188,7 +161,7 @@
   .dieline-images {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2.5rem;
   }
 
   .additional-images img {
