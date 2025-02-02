@@ -86,7 +86,7 @@
         
         <div class="can-images">
           {#each project.images.filter(image => image.type === 'can') as image}
-            <img src={image.src} alt={`${project.title} Can`} />
+          <LazyImage src={image.src} alt={`${project.title} Image`} aspectRatio="9 / 16" />
           {/each}
         </div>
       {/if}
@@ -184,11 +184,6 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;
-  }
-
-  .additional-images img {
-    width: 100%;
-    height: auto;
   }
 
   .up-next {

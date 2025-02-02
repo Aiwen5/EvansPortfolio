@@ -124,7 +124,7 @@
 
   .social-icons {
     display: flex;
-    gap: 1.5rem;
+    gap: 2.5rem;
   }
 
   .social-icons a, .email-button {
@@ -155,7 +155,7 @@
     }
 
     .social-icons {
-      gap: 1rem;
+      gap: 1.75rem;
     }
   }
 </style>
