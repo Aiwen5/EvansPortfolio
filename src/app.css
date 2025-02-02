@@ -105,6 +105,10 @@ p {
 	h1 {
 		font-size: 4rem;
 	}
+
+	h2 {
+		font-size: 1.5rem;
+	}
 }
 
 @media (max-width: 768px) {
@@ -116,7 +120,8 @@ p {
 	}
 
 	h1 {
-		font-size: 2.5rem;
+		font-size: 2.7rem;
+		margin-top: 1rem;
 	}
 }
 

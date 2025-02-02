@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  export let text: string = 'Click Me'; // Default text if not provided
-  export let width: string = '170px';  // Default width if not provided
-  export let type: 'button' | 'submit' | 'reset' = 'button';  // Default type if not provided
-  export let onClick: () => void = () => {};  // Function to handle button click
+  export let text: string = 'Click Me';
+  export let width: string = '170px';
+  export let type: 'button' | 'submit' | 'reset' = 'button';
+  export let onClick: () => void = () => {};
 
   let isDarkMode = false;
 

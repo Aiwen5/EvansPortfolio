@@ -80,13 +80,13 @@
       {#if project.images}
         <div class="dieline-images">
           {#each project.images.filter(image => image.type === 'normal') as image}
-            <LazyImage src={image.src} alt={`${project.title} Image`} /> 
+            <LazyImage src={image.src} alt={`${project.title} Image`} dieline={true} /> 
           {/each}
         </div>
         
         <div class="can-images">
           {#each project.images.filter(image => image.type === 'can') as image}
-            <img src={image.src} alt={`${project.title} Can`} />
+          <LazyImage src={image.src} alt={`${project.title} Image`} aspectRatio="9 / 16" />
           {/each}
         </div>
       {/if}
@@ -186,11 +186,6 @@
     gap: 2.5rem;
   }
 
-  .additional-images img {
-    width: 100%;
-    height: auto;
-  }
-
   .up-next {
     grid-column: span 12;
     margin-top: 3rem;
@@ -230,7 +225,7 @@
 @media (max-width: 768px) {
   .details-grid {
     grid-template-columns: repeat(4, 1fr);
-    margin: 0;
+    margin: 2rem 0;
   }
 
   .project-container {

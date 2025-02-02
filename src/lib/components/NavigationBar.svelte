@@ -25,6 +25,10 @@
     ? '../images/icons/list-bold-darkmode.svg' 
     : '../images/icons/list-bold.svg';
 
+  $: logoIconSrc = isDarkMode 
+    ? '../LogoDarkMode.svg' 
+    : '../Logo.svg';
+
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
       isMenuOpen = !isMenuOpen;
@@ -61,7 +65,7 @@
   <!-- Logo -->
   <a href="/" class="logo-link">
     <div class="logo-container" role="banner">
-      <img src="/Logo.svg" alt="Evan Schatz Logo" class="logo" />
+      <img src={logoIconSrc} alt="Evan Schatz Logo" class="logo" />
       <div class="logo-text">Evan Schatz</div>
     </div>
   </a>
@@ -161,6 +165,8 @@
   font-size: 1.5rem;
   font-weight: 600;
   font-family: var(--font-heading);
+  position: relative;
+  top: 2.3px;
 }
 
 /* Navigation Links */

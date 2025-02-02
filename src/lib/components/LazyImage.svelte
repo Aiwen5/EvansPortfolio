@@ -3,6 +3,9 @@
 
   export let src: string;
   export let alt: string = '';
+  export let dieline: boolean = false;
+  export let aspectRatio: string = '16 / 9';
+
   let isLoaded = false;
   let hasError = false;
   let imgElement: HTMLImageElement;
@@ -22,7 +25,6 @@
   };
 
   onMount(() => {
-    // Check if image is already cached and loaded
     if (imgElement && imgElement.complete) {
       if (imgElement.naturalWidth !== 0) {
         handleLoad();
@@ -33,7 +35,7 @@
   });
 </script>
 
-<div class="image-wrapper">
+<div class="image-wrapper" style="aspect-ratio: {aspectRatio};">
   {#if !isLoaded && !hasError}
     <div class="placeholder"></div>
   {/if}
@@ -48,7 +50,8 @@
     alt={alt} 
     on:load={handleLoad} 
     on:error={handleError} 
-    class:is-visible={isLoaded} 
+    class:is-visible={isLoaded}
+    class:dieline-style={dieline}
   />
 </div>
 
@@ -56,7 +59,6 @@
   .image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
     overflow: hidden;
   }
 
@@ -103,6 +105,13 @@
 
   img.is-visible {
     opacity: 1;
+  }
+
+  /* Styles for dieline images */
+  img.dieline-style {
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
   }
 
   @keyframes pulse {
