@@ -12,7 +12,7 @@
     padding: 0.25rem 0.75rem;
     font-size: 0.875rem;
     font-weight: 600;
-    background-color: var(--primary-accent-light);
+    background-color: var(--chip-bg);
     color: var(--primary-accent);
     border-radius: 9999px;
     text-align: center;

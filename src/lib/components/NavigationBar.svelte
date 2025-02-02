@@ -3,6 +3,22 @@
 
   let isMenuOpen = false;
   let currentPath = '';
+  let isDarkMode = false;
+
+  const toggleTheme = () => {
+    isDarkMode = !isDarkMode;
+    console.log('Theme toggled:', isDarkMode);  // Debugging log
+    document.documentElement.classList.toggle('dark-mode', isDarkMode);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  };
+
+  $: iconSrc = isDarkMode 
+    ? '../images/icons/sun-bold-darkmode.svg' 
+    : '../images/icons/moon-bold.svg';
+
+  $: menuIconSrc = isDarkMode 
+    ? '../images/icons/list-bold-darkmode.svg' 
+    : '../images/icons/list-bold.svg';
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -17,20 +33,27 @@
     { text: 'Contact', href: '/contact' }
   ];
 
+  let desktopButton: HTMLButtonElement; // Reference to desktop theme button
+
   onMount(() => {
+    console.log('Desktop theme button mounted:', desktopButton);  // Debugging log
+    
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      isDarkMode = true;
+      document.documentElement.classList.add('dark-mode');
+    }
+
     currentPath = window.location.pathname;
     if (currentPath === '' || currentPath === '/' || currentPath === '/index.html') {
       currentPath = '/';
     }
-
-    const navItems = document.querySelectorAll('nav a');
-    navItems.forEach(item => {
-      item.setAttribute('tabindex', '0');
-    });
   });
 </script>
 
-<nav aria-label="Main navigation" class="navbar">
+<nav aria-label="Main navigation" class="navbar {isMenuOpen ? 'menu-open' : ''}">
   <!-- Logo -->
   <a href="/" class="logo-link">
     <div class="logo-container" role="banner">
@@ -40,7 +63,7 @@
   </a>
 
   <!-- Navigation Links -->
-  <div class="nav-links stroke" role="menubar">
+  <div class="nav-links stroke {isMenuOpen ? 'open' : ''}" role="menubar">
     {#each navigationItems as item}
       <a
         href={item.href}
@@ -59,7 +82,7 @@
 
   <!-- Hamburger Icon -->
   <button class="menu-toggle" aria-label="Toggle menu" on:click={() => isMenuOpen = !isMenuOpen}>
-    <img src="/images/icons/list-bold.svg" alt="Menu Icon" class="menu-icon" />
+    <img src={menuIconSrc} alt="Menu Icon" class="menu-icon" />
   </button>
 
   <!-- Mobile Menu -->
@@ -75,8 +98,36 @@
       </a>
     {/each}
 
-    <button type="button" aria-label="Toggle theme" class="theme-toggle-mobile" on:keydown={handleKeyPress}>
-      <img loading="lazy" src="../images/icons/moon-bold.svg" alt="Toggle Theme" class="theme-icon" />
+    <button
+      type="button"
+      aria-label="Toggle theme"
+      class="theme-toggle"
+      on:keydown={handleKeyPress}
+      on:click={toggleTheme}
+      bind:this={desktopButton}
+    >
+    <!-- Come back to later-->
+    <!-- on:click={toggleTheme} is not appearing in browser sources??? Causing desktop theme toggle button to not work -->
+      <img
+        loading="lazy"
+        src={iconSrc}
+        alt="Toggle Theme"
+        class="theme-icon"
+      />
+    </button>
+    <button
+      type="button"
+      aria-label="Toggle theme"
+      class="theme-toggle-mobile"
+      on:keydown={handleKeyPress}
+      on:click={toggleTheme}
+    >
+      <img
+        loading="lazy"
+        src={iconSrc}
+        alt="Toggle Theme"
+        class="theme-icon"
+      />
     </button>
   </div>
 </nav>
@@ -94,6 +145,11 @@
   background: var(--card-bg);
   position: relative;
   z-index: 10;
+  transition: border-radius 0.3s ease;
+}
+
+.navbar.menu-open {
+  border-bottom-left-radius: 0px;
 }
 
 /* Logo Section */
@@ -112,12 +168,14 @@
 .logo-text {
   font-size: 1.5rem;
   font-weight: 600;
+  font-family: var(--font-heading);
 }
 
 /* Navigation Links */
 .nav-links {
   display: flex;
   gap: 40px;
+  transition: max-height 0.3s ease-in-out;
 }
 
 .nav-item {
@@ -244,6 +302,10 @@
 
   .theme-toggle {
     display: none;
+  }
+
+  .navbar {
+    padding-right: 1.25em;
   }
 }
 </style>

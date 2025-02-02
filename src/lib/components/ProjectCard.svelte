@@ -3,7 +3,7 @@
   export let project;
 </script>
 
-<div class="card">
+<a href={`/projects/${project.slug}`} class="card">
   <img src={project.image} alt={project.title} class="card-image" />
   <div class="card-content">
     <h2 class="project-title">{project.title}</h2>
@@ -13,7 +13,7 @@
       {/each}
     </div>
   </div>
-</div>
+</a>
 
 <style>
   .card {
@@ -27,6 +27,11 @@
     height: 22rem;
     align-items: center;
     flex-direction: row;
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
   }
 
   .card-image {
