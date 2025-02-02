@@ -4,12 +4,17 @@
   let isMenuOpen = false;
   let currentPath = '';
   let isDarkMode = false;
+  let isAnimating = false;
 
   const toggleTheme = () => {
     isDarkMode = !isDarkMode;
+    isAnimating = true;
     console.log('Theme toggled:', isDarkMode);  // Debugging log
     document.documentElement.classList.toggle('dark-mode', isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    setTimeout(() => {
+      isAnimating = false;
+    }, 600);
   };
 
   $: iconSrc = isDarkMode 
@@ -36,7 +41,6 @@
   let desktopButton: HTMLButtonElement; // Reference to desktop theme button
 
   onMount(() => {
-    console.log('Desktop theme button mounted:', desktopButton);  // Debugging log
     
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -76,8 +80,13 @@
     {/each}
   </div>
 
-  <button type="button" aria-label="Toggle theme" class="theme-toggle" on:keydown={handleKeyPress}>
-    <img loading="lazy" src="../images/icons/moon-bold.svg" alt="Toggle Theme" class="theme-icon" />
+  <button type="button" aria-label="Toggle theme" class="theme-toggle" on:click={toggleTheme} on:keydown={handleKeyPress}>
+    <img
+      loading="lazy"
+      src={iconSrc}
+      alt="Toggle Theme"
+      class="theme-icon {isAnimating ? 'animating' : ''}"
+    />
   </button>
 
   <!-- Hamburger Icon -->
@@ -98,23 +107,6 @@
       </a>
     {/each}
 
-    <button
-      type="button"
-      aria-label="Toggle theme"
-      class="theme-toggle"
-      on:keydown={handleKeyPress}
-      on:click={toggleTheme}
-      bind:this={desktopButton}
-    >
-    <!-- Come back to later-->
-    <!-- on:click={toggleTheme} is not appearing in browser sources??? Causing desktop theme toggle button to not work -->
-      <img
-        loading="lazy"
-        src={iconSrc}
-        alt="Toggle Theme"
-        class="theme-icon"
-      />
-    </button>
     <button
       type="button"
       aria-label="Toggle theme"
@@ -227,8 +219,31 @@
   width: 36px;
   height: 36px;
   object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.theme-icon.animating {
+  animation: tiltFade 0.4s cubic-bezier(0.40, 0, 0.60, 1);
+}
+
+@keyframes tiltFade {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  40% {
+    transform: rotate(-20deg);
+    opacity: 0.4;
+  }
+  60% {
+    transform: rotate(20deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
 /* Hamburger Menu */
 .menu-toggle {
   display: none;

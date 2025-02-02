@@ -53,7 +53,10 @@
         <h2>Tools</h2>
 
         {#if project.externalLink}
-          <ExternalLinkButton link={project.externalLink} />
+          <!-- Button for Desktop -->
+          <div class="external-link-desktop">
+            <ExternalLinkButton link={project.externalLink} />
+          </div>
         {/if}
       </div>
 
@@ -63,6 +66,13 @@
         {/each}
       </div>
     </div>
+
+    {#if project.externalLink}
+      <!-- Button for Mobile, displayed after tools -->
+      <div class="external-link-mobile">
+        <ExternalLinkButton link={project.externalLink} />
+      </div>
+    {/if}
 
     <!-- Additional Images Section -->
     <div class="additional-images">
@@ -109,6 +119,7 @@
   .categories {
     grid-column: span 12;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
@@ -159,6 +170,7 @@
     display: flex;
     gap: 0.5rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
   }
 
   .additional-images {
@@ -211,9 +223,38 @@
   }
 }
 
+/* Show on desktop, hide on mobile */
+.external-link-desktop {
+  display: block;
+}
+
+.external-link-mobile {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .details-grid {
     grid-template-columns: repeat(4, 1fr);
+    margin: 0;
+  }
+
+  .project-container {
+    display: block;
+  }
+
+  .tools {
+    margin: 0;
+    margin: 2rem 0;
+  }
+
+   /* Hide on mobile, show below tools */
+  .external-link-desktop {
+    display: none;
+  }
+
+  .external-link-mobile {
+    display: block;
+    margin: 2rem 0;  /* Add some spacing if needed */
   }
 
   .overview {
