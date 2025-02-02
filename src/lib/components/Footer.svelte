@@ -18,10 +18,21 @@
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   });
 
-  const getIconSrc = (iconName: string) => 
-    isDarkMode 
-      ? `/images/icons/${iconName}-bold-darkmode.svg` 
-      : `/images/icons/${iconName}-bold.svg`;
+  $: linkedinIcon = isDarkMode 
+    ? '/images/icons/linkedin-logo-bold-darkmode.svg' 
+    : '/images/icons/linkedin-logo-bold.svg';
+
+  $: githubIcon = isDarkMode 
+    ? '/images/icons/github-logo-bold-darkmode.svg' 
+    : '/images/icons/github-logo-bold.svg';
+
+  $: instagramIcon = isDarkMode 
+    ? '/images/icons/instagram-logo-bold-darkmode.svg' 
+    : '/images/icons/instagram-logo-bold.svg';
+
+  $: envelopeIcon = isDarkMode 
+    ? '/images/icons/envelope-bold-darkmode.svg' 
+    : '/images/icons/envelope-bold.svg';
 
   const copyEmailToClipboard = () => {
     navigator.clipboard.writeText(email)
@@ -45,16 +56,16 @@
 
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/evan-schatz/" target="_blank" rel="noopener noreferrer">
-        <img src={getIconSrc('linkedin-logo')} alt="LinkedIn" />
+        <img src={linkedinIcon} alt="LinkedIn" />
       </a>
       <a href="https://github.com/Aiwen5" target="_blank" rel="noopener noreferrer">
-        <img src={getIconSrc('github-logo')} alt="GitHub" />
+        <img src={githubIcon} alt="GitHub" />
       </a>
       <a href="https://www.instagram.com/schatzdesigns7/" target="_blank" rel="noopener noreferrer">
-        <img src={getIconSrc('instagram-logo')} alt="Instagram" />
+        <img src={instagramIcon} alt="Instagram" />
       </a>
       <button class="email-button" on:click={copyEmailToClipboard} aria-label="Copy email to clipboard">
-        <img src={getIconSrc('envelope')} alt="Email" />
+        <img src={envelopeIcon} alt="Email" />
       </button>
     </div>
   </div>
@@ -68,6 +79,7 @@
     justify-content: center;
     align-items: center;
     grid-column: span 12;
+    margin-bottom: 1rem;
   }
 
   .footer-content {

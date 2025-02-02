@@ -3,9 +3,27 @@
   let email = '';
   let message = '';
 
-  const handleSubmit = () => {
-    alert(`Thank you, ${name}! Your message has been sent.`);
-  };
+  const handleSubmit = async () => {
+  try {
+    const response = await fetch('/api/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    if (response.ok) {
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      name = '';
+      email = '';
+      message = '';
+    } else {
+      alert('Failed to send your message. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred while sending the message.');
+  }
+};
 </script>
 
 <div class="contact-page">
@@ -27,7 +45,7 @@
 <style>
   .contact-page {
     padding: 2rem;
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     text-align: center;
     display: grid;
@@ -50,15 +68,17 @@
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--primary-accent);
-    border-radius: 8px;
+    background-color: var(--background);
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
   }
 
   button {
-    background-color: var(--primary-accent);
-    color: white;
+    color: var(--primary-accent);
     padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 8px;
+    border: 1px solid var(--primary-accent);
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }

@@ -3,6 +3,7 @@
   import NavigationBar from '$lib/components/NavigationBar.svelte';
   import ScrollToTop from '$lib/components/ScrollToTop.svelte';
   import Footer from '$lib/components/Footer.svelte';
+  import { injectAnalytics } from '@vercel/analytics/sveltekit'
 </script>
 
 <div class="layout-grid">

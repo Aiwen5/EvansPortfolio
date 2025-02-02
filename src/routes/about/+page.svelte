@@ -15,7 +15,6 @@
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
-    display: grid;
     gap: 1rem;
     grid-column: span 12;
   }
