@@ -1,8 +1,9 @@
 <script lang="ts">
   import CategoryChip from '$lib/components/CategoryChip.svelte';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
-  import ExternalLinkButton from '$lib/components/ExternalLinkButton.svelte';  // <-- Import the button component
-  import projects from '$lib/data/projects.json';
+  import ExternalLinkButton from '$lib/components/ExternalLinkButton.svelte';
+  import projects from '$lib/data/projects.json' assert { type: 'json' };
+  import LazyImage from '$lib/components/LazyImage.svelte';
   import { page } from '$app/stores'; 
 
   let slug: string;
@@ -23,7 +24,7 @@
     <!-- Project Title -->
     <h1 class="project-title">{project.title}</h1>
 
-    <!-- Categories using CategoryChip component -->
+    <!-- Categories -->
     <div class="categories">
       {#each project.categories as category}
         <CategoryChip label={category} />
@@ -32,7 +33,7 @@
 
     <!-- Thumbnail Image -->
     <div class="image-container">
-      <img src={project.image} alt={project.title} />
+      <LazyImage src={project.image} alt={`${project.title} Image`} />
     </div>
 
     <!-- Project Details Grid -->
@@ -79,7 +80,7 @@
       {#if project.images}
         <div class="dieline-images">
           {#each project.images.filter(image => image.type === 'normal') as image}
-            <img src={image.src} alt={`${project.title} Image`} />
+            <LazyImage src={image.src} alt={`${project.title} Image`} /> 
           {/each}
         </div>
         
@@ -132,12 +133,6 @@
     justify-content: center;
   }
 
-  .image-container img {
-    object-fit: cover;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-  }
-
   .details-grid {
     grid-column: span 12;
     display: grid;
@@ -188,7 +183,7 @@
   .dieline-images {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 2.5rem;
   }
 
   .additional-images img {
