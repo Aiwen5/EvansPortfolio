@@ -12,7 +12,6 @@
       isDarkMode = true;
     }
 
-    // Listen for theme toggle changes
     const observer = new MutationObserver(() => {
       isDarkMode = document.documentElement.classList.contains('dark-mode');
     });
@@ -23,14 +22,13 @@
     ? '/images/icons/arrow-square-out-bold-darkmode.svg' 
     : '/images/icons/arrow-square-out-bold.svg';
 
-  $: textColor = isDarkMode ? 'var(--text-dark)' : 'var(--text-light)';
-  $: borderColor = isDarkMode ? 'var(--border-dark)' : 'var(--border-light)';
+  $: hoverIconClass = isDarkMode ? 'hover-dark' : 'hover-light';
 </script>
 
 <a href={link} target="_blank" rel="noopener noreferrer" class="external-link-button">
   <div class="button-content">
     <span>Check it out</span>
-    <img src={iconSrc} alt="External Link Icon" class="link-icon" />
+    <img src={iconSrc} alt="External Link Icon" class="link-icon {hoverIconClass}" />
   </div>
 </a>
 
@@ -41,11 +39,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
     border: 1px solid var(--primary-accent);
     text-decoration: none;
     position: relative;
-    transition: all 0.3s ease;
+    overflow: hidden;
+    transition: color 0.33s ease;
+    z-index: 1;
   }
 
   .button-content {
@@ -54,6 +55,9 @@
     justify-content: space-between;
     width: 100%;
     padding: 0 12px;
+    position: relative;
+    z-index: 2;
+    transition: color 0.33s ease;
   }
 
   .button-content span {
@@ -61,20 +65,56 @@
     font-family: 'PT Sans', sans-serif;
     font-weight: 400;
     color: var(--primary-accent);
+    transition: color 0.33s ease;
   }
 
   .link-icon {
     width: 24px;
     height: 24px;
+    transition: filter 0.33s ease, color 0.33s ease;
   }
 
-  .external-link-button:hover {
-    background-color: var(--primary-accent);
+  .external-link-button::before,
+  .external-link-button::after {
+    content: '';
+    position: absolute;
+    height: 110%;
+    width: 0%;
+    top: -5%;
+    left: -5%;
+    transform: skewX(-12deg);
+    z-index: -1;
+    transition: width 0.33s cubic-bezier(0.77, 0, 0.175, 1);
   }
 
-  .external-link-button:hover span,
-  .external-link-button:hover .link-icon {
-    color: white;
+  .external-link-button::before {
+    background: var(--secondary-accent);
+  }
+
+  .external-link-button::after {
+    background: var(--primary-accent);
+    transition: width 0.53s cubic-bezier(0.77, 0, 0.175, 1) 0.17s;
+  }
+
+  .external-link-button:hover::before {
+    width: 130%;
+  }
+
+  .external-link-button:hover::after {
+    width: 130%;
+  }
+
+  .external-link-button:hover span {
+    color: var(--background);
+  }
+
+  .external-link-button:hover .hover-light {
+    color: var(--background);
     filter: brightness(0) invert(1);
+  }
+
+  .external-link-button:hover .hover-dark {
+    color: var(--background);
+    filter: brightness(1) invert(1);
   }
 </style>

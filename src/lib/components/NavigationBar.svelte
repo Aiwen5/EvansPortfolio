@@ -3,9 +3,8 @@
 
   let isMenuOpen = false;
   let currentPath = '';
-  let isDarkMode = false; // Track dark mode state
+  let isDarkMode = false;
 
-  // Toggle dark mode and store preference
   const toggleTheme = () => {
     isDarkMode = !isDarkMode;
     console.log('Theme toggled:', isDarkMode);  // Debugging log
@@ -13,7 +12,6 @@
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   };
 
-  // Reactive icon sources
   $: iconSrc = isDarkMode 
     ? '../images/icons/sun-bold-darkmode.svg' 
     : '../images/icons/moon-bold.svg';
@@ -40,7 +38,6 @@
   onMount(() => {
     console.log('Desktop theme button mounted:', desktopButton);  // Debugging log
     
-    // Check localStorage for theme preference
     const savedTheme = localStorage.getItem('theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -171,6 +168,7 @@
 .logo-text {
   font-size: 1.5rem;
   font-weight: 600;
+  font-family: var(--font-heading);
 }
 
 /* Navigation Links */
