@@ -1,13 +1,11 @@
 import nodemailer from 'nodemailer';
+import { json } from '@sveltejs/kit';
 
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
-  }
+import type { RequestEvent } from '@sveltejs/kit';
 
-  const { name, email, message } = req.body;
+export async function POST({ request }: RequestEvent) {
+  const { name, email, message } = await request.json();
 
-  // Configure the transporter
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -16,7 +14,6 @@ export default async function handler(req, res) {
     },
   });
 
-  // Mail options
   const mailOptions = {
     from: email,
     to: 'schatzdesigns7@gmail.com',
@@ -26,9 +23,9 @@ export default async function handler(req, res) {
 
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: 'Email sent successfully!' });
+    return json({ message: 'Email sent successfully!' }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).json({ message: 'Failed to send email' });
+    return json({ message: 'Failed to send email' }, { status: 500 });
   }
 }
