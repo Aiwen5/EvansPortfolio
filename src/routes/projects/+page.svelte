@@ -28,10 +28,4 @@
     display: grid;
     gap: 2rem;
   }
-
-  @media (max-width: 768px) {
-    .page-title {
-      font-size: 2rem;
-    }
-  }
 </style>

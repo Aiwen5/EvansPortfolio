@@ -80,7 +80,7 @@
       {#if project.images}
         <div class="dieline-images">
           {#each project.images.filter(image => image.type === 'normal') as image}
-            <LazyImage src={image.src} alt={`${project.title} Image`} /> 
+            <LazyImage src={image.src} alt={`${project.title} Image`} dieline={true} /> 
           {/each}
         </div>
         

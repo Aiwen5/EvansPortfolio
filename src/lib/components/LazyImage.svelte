@@ -3,9 +3,11 @@
 
   export let src: string;
   export let alt: string = '';
+  export let dieline: boolean = false;
   let isLoaded = false;
   let hasError = false;
   let imgElement: HTMLImageElement;
+  
 
   // Reset loading state when src changes
   $: if (src) {
@@ -48,7 +50,8 @@
     alt={alt} 
     on:load={handleLoad} 
     on:error={handleError} 
-    class:is-visible={isLoaded} 
+    class:is-visible={isLoaded}
+    class:dieline-style={dieline}
   />
 </div>
 
@@ -89,20 +92,27 @@
   }
 
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom-left-radius: 30px;
+  border-top-right-radius: 30px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
 
   img.is-visible {
     opacity: 1;
+  }
+
+  /* Styles for dieline images */
+  img.dieline-style {
+    height: auto;
+    object-fit: contain;
+    border-radius: 0;
   }
 
   @keyframes pulse {

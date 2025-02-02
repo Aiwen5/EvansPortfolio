@@ -4,6 +4,7 @@
 </script>
 
 <div class="projects-grid">
+  <h1 class="page-title">Hi, I'm Evan!</h1>
   {#each projects as project}
     <ProjectCard {project} />
   {/each}

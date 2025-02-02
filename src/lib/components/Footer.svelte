@@ -18,6 +18,10 @@
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   });
 
+  $: logoIconSrc = isDarkMode 
+    ? '../LogoDarkMode.svg' 
+    : '../Logo.svg';
+
   $: linkedinIcon = isDarkMode 
     ? '/images/icons/linkedin-logo-bold-darkmode.svg' 
     : '/images/icons/linkedin-logo-bold.svg';
@@ -47,10 +51,12 @@
 
 <footer class="footer">
   <div class="footer-content">
-    <div class="logo-container">
-      <img src="/Logo.svg" alt="Evan Schatz Logo" class="logo" />
-      <span class="name">Evan Schatz</span>
-    </div>
+    <a href="/" class="logo-link">
+      <div class="logo-container">
+        <img src={logoIconSrc} alt="Evan Schatz Logo" class="logo" />
+        <span class="name">Evan Schatz</span>
+      </div>
+    </a>
 
     <div class="year">2025 © Evan Schatz</div>
 
@@ -105,6 +111,8 @@
     font-family: var(--font-heading);
     font-weight: 600;
     color: var(--primary-accent);
+    position: relative;
+    top: 2.3px;
   }
 
   .year {
