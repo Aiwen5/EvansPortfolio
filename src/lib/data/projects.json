@@ -3,12 +3,38 @@
     "slug": "fathom-summer-series",
     "title": "Fathom Summer Series",
     "image": "/images/can-design/ThreeCanMockup.png",
-    "categories": ["Graphic Design", "Packaging", "Branding"]
+    "categories": ["Graphic Design", "Packaging", "Branding"],
+    "year": 2024,
+    "overview": "The Fathom Summer Series was created to capture the essence of summer through a line of craft beers, each inspired by a distinct time of day. Designed for Canadian consumers, the series balances vibrant visuals with bilingual labeling to meet packaging standards while reflecting the adventurous and geometric identity of the Fathom brand.\n\nEach can showcases sharp, geometric fruit illustrations that align with Fathom’s brand style, emphasizing bold, clean shapes and lines. Brand cohesion was maintained by carrying this geometric aesthetic across all designs, complemented by a consistent line graphic that unifies the series. The flavours themselves—Dawn Rise (Blood Orange & Ginger Wheat Ale), Golden Hour (Mango & Pineapple Pale Ale), and Twilight Berry (Blackberry & Lavender Saison)—are inspired by the feelings of a summer day, capturing the energy of morning, the brightness of midday, and the calm of twilight. Custom iconography highlights flavour profiles such as crispness and malt, giving consumers an idea of the flavour profile and adding depth to the design.\n\nThis series stands out on shelves with its vibrant colors, bold graphics, and storytelling, inviting consumers to experience the adventure of summer through Fathom’s unique lens.",
+    "tools": ["Adobe Illustrator", "Adobe Photoshop"],
+    "images": [
+      "/images/can-design/DawnRiseDiline.png",
+      "/images/can-design/GoldenHourDiline.png",
+      "/images/can-design/TwilightBerryDiline.png",
+      "/images/can-design/DawnRiseCan.png",
+      "/images/can-design/GoldenHourCan.png",
+      "/images/can-design/TwilightBerryCan.png"
+    ],
+    "upNext": {
+      "slug": "coltrane-ellington",
+      "title": "Coltrane and Ellington",
+      "image": "/images/magazine/MagazineCoverImage.png",
+      "categories": ["Graphic Design", "Poster"]
+    }
   },
   {
     "slug": "coltrane-ellington",
     "title": "Coltrane and Ellington",
     "image": "/images/magazine/MagazineCoverImage.png",
-    "categories": ["Graphic Design", "Poster"]
+    "categories": ["Graphic Design", "Poster"],
+    "year": 2024,
+    "overview": "This poster was created to honour jazz icons Duke Ellington and John Coltrane, blending retro and modern elements to pay tribute to their timeless legacy. The orange and purple color palette was chosen to reflect the original album artwork, creating a visual homage to their collaboration. The typeface used for their names draws inspiration from 1960s design trends while incorporating a contemporary twist, balancing nostalgia with modern aesthetics.\n\nTo integrate the sourced images seamlessly into the design, Coltrane and Ellington were posterized. This approach added elegance, enhanced balance, and unified the composition. The warm, dynamic visuals and bold typography create a striking design that captures the energy and sophistication of jazz. Perfect for music lovers and collectors, this poster serves as a fitting tribute to two of the greatest legends in jazz history.",
+    "tools": ["Adobe Illustrator", "Adobe Photoshop"],
+    "upNext": {
+      "slug": "fathom-summer-series",
+      "title": "Fathom Summer Series",
+      "image": "/images/can-design/ThreeCanMockup.png",
+      "categories": ["Graphic Design", "Packaging", "Branding"]
+    }
   }
 ]

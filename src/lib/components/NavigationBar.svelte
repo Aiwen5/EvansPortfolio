@@ -3,6 +3,24 @@
 
   let isMenuOpen = false;
   let currentPath = '';
+  let isDarkMode = false; // Track dark mode state
+
+  // Toggle dark mode and store preference
+  const toggleTheme = () => {
+    isDarkMode = !isDarkMode;
+    console.log('Theme toggled:', isDarkMode);  // Debugging log
+    document.documentElement.classList.toggle('dark-mode', isDarkMode);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  };
+
+  // Reactive icon sources
+  $: iconSrc = isDarkMode 
+    ? '../images/icons/sun-bold-darkmode.svg' 
+    : '../images/icons/moon-bold.svg';
+
+  $: menuIconSrc = isDarkMode 
+    ? '../images/icons/list-bold-darkmode.svg' 
+    : '../images/icons/list-bold.svg';
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -17,16 +35,24 @@
     { text: 'Contact', href: '/contact' }
   ];
 
+  let desktopButton: HTMLButtonElement; // Reference to desktop theme button
+
   onMount(() => {
+    console.log('Desktop theme button mounted:', desktopButton);  // Debugging log
+    
+    // Check localStorage for theme preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      isDarkMode = true;
+      document.documentElement.classList.add('dark-mode');
+    }
+
     currentPath = window.location.pathname;
     if (currentPath === '' || currentPath === '/' || currentPath === '/index.html') {
       currentPath = '/';
     }
-
-    const navItems = document.querySelectorAll('nav a');
-    navItems.forEach(item => {
-      item.setAttribute('tabindex', '0');
-    });
   });
 </script>
 
@@ -59,7 +85,7 @@
 
   <!-- Hamburger Icon -->
   <button class="menu-toggle" aria-label="Toggle menu" on:click={() => isMenuOpen = !isMenuOpen}>
-    <img src="/images/icons/list-bold.svg" alt="Menu Icon" class="menu-icon" />
+    <img src={menuIconSrc} alt="Menu Icon" class="menu-icon" />
   </button>
 
   <!-- Mobile Menu -->
@@ -75,8 +101,36 @@
       </a>
     {/each}
 
-    <button type="button" aria-label="Toggle theme" class="theme-toggle-mobile" on:keydown={handleKeyPress}>
-      <img loading="lazy" src="../images/icons/moon-bold.svg" alt="Toggle Theme" class="theme-icon" />
+    <button
+      type="button"
+      aria-label="Toggle theme"
+      class="theme-toggle"
+      on:keydown={handleKeyPress}
+      on:click={toggleTheme}
+      bind:this={desktopButton}
+    >
+    <!-- Come back to later-->
+    <!-- on:click={toggleTheme} is not appearing in browser sources??? Causing desktop theme toggle button to not work -->
+      <img
+        loading="lazy"
+        src={iconSrc}
+        alt="Toggle Theme"
+        class="theme-icon"
+      />
+    </button>
+    <button
+      type="button"
+      aria-label="Toggle theme"
+      class="theme-toggle-mobile"
+      on:keydown={handleKeyPress}
+      on:click={toggleTheme}
+    >
+      <img
+        loading="lazy"
+        src={iconSrc}
+        alt="Toggle Theme"
+        class="theme-icon"
+      />
     </button>
   </div>
 </nav>
@@ -244,6 +298,10 @@
 
   .theme-toggle {
     display: none;
+  }
+
+  .navbar {
+    padding-right: 1.25em;
   }
 }
 </style>
