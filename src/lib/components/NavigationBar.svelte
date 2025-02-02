@@ -56,7 +56,7 @@
   });
 </script>
 
-<nav aria-label="Main navigation" class="navbar">
+<nav aria-label="Main navigation" class="navbar {isMenuOpen ? 'menu-open' : ''}">
   <!-- Logo -->
   <a href="/" class="logo-link">
     <div class="logo-container" role="banner">
@@ -66,7 +66,7 @@
   </a>
 
   <!-- Navigation Links -->
-  <div class="nav-links stroke" role="menubar">
+  <div class="nav-links stroke {isMenuOpen ? 'open' : ''}" role="menubar">
     {#each navigationItems as item}
       <a
         href={item.href}
@@ -148,6 +148,11 @@
   background: var(--card-bg);
   position: relative;
   z-index: 10;
+  transition: border-radius 0.3s ease;
+}
+
+.navbar.menu-open {
+  border-bottom-left-radius: 0px;
 }
 
 /* Logo Section */
@@ -172,6 +177,7 @@
 .nav-links {
   display: flex;
   gap: 40px;
+  transition: max-height 0.3s ease-in-out;
 }
 
 .nav-item {
