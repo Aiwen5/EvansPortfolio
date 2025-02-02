@@ -225,7 +225,7 @@
 @media (max-width: 768px) {
   .details-grid {
     grid-template-columns: repeat(4, 1fr);
-    margin: 0;
+    margin: 2rem 0;
   }
 
   .project-container {

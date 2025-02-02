@@ -5,6 +5,7 @@
 
 <div class="projects-grid">
   <h1 class="page-title">Hi, I'm Evan!</h1>
+  <h2 class="projects-subtitle">Check out my latest projects</h2>
   {#each projects as project}
     <ProjectCard {project} />
   {/each}
