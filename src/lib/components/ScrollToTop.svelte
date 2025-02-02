@@ -1,56 +1,89 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+
   let isVisible = false;
 
-  const handleScroll = () => {
-    isVisible = window.scrollY > 200;
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const checkScroll = () => {
+    isVisible = window.scrollY > 300;
   };
 
   onMount(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', checkScroll);
+    return () => window.removeEventListener('scroll', checkScroll);
   });
-
-  const scrollToTop = () => {
-    console.log("Button clicked");
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 </script>
 
-<button on:click={scrollToTop} class:visible={isVisible} class="scroll-to-top-button">
+<button 
+  class="scroll-button {isVisible ? 'visible' : ''}" 
+  on:click={scrollToTop} 
+  aria-label="Scroll to top">
   ↑
 </button>
 
 <style>
-  .scroll-to-top-button {
+  .scroll-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 2rem;
+    right: 2rem;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    background-color: var(--primary-accent, #10312B);
-    color: var(--background);
-    border: none;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border: 1px solid var(--primary-accent);
+    background: transparent;
     cursor: pointer;
-    font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+    color: var(--primary-accent);
+    overflow: hidden;
+
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-    z-index: 5000;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 1000;
   }
 
-  .scroll-to-top-button.visible {
+  /* Make the button visible when scrolling down */
+  .scroll-button.visible {
     opacity: 1;
-    visibility: visible;
     transform: translateY(0);
   }
 
-  .scroll-to-top-button:hover {
-    background-color: var(--secondary-accent, #F4A261);
+  /* Hover Effects */
+  .scroll-button::before,
+  .scroll-button::after {
+    content: '';
+    position: absolute;
+    height: 120%; 
+    width: 0%;
+    top: -10%;
+    left: -10%;
+    transform: skewX(-10deg);
+    z-index: -1;
+    transition: width 0.33s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .scroll-button::before {
+    background: var(--secondary-accent);
+  }
+
+  .scroll-button::after {
+    background: var(--primary-accent);
+    transition: width 0.53s cubic-bezier(0.77, 0, 0.175, 1) 0.17s;
+  }
+
+  .scroll-button:hover::before,
+  .scroll-button:hover::after {
+    width: 150%;
+  }
+
+  .scroll-button:hover {
+    color: var(--background);
   }
 </style>
