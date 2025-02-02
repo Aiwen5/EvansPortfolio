@@ -131,7 +131,7 @@
     .footer-content {
       flex-direction: column;
       text-align: center;
-      gap: 1rem;
+      gap: 2rem;
     }
 
     .social-icons {
