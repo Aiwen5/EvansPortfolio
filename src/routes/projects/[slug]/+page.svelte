@@ -2,24 +2,41 @@
   import CategoryChip from '$lib/components/CategoryChip.svelte';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
   import ExternalLinkButton from '$lib/components/ExternalLinkButton.svelte';
+  import projects from '$lib/data/projects.json' assert { type: 'json' };
   import LazyImage from '$lib/components/LazyImage.svelte';
+  import { page } from '$app/stores'; 
 
-  export let data;
-  const { project, nextProject } = data;
+  let slug: string;
+  $: slug = $page.params.slug;
+
+  let project;
+  $: project = projects.find((p: { slug: string }) => p.slug === slug);
+
+  let nextProject: { slug: string, title: string, categories: string[], image: string, overview: string, year: number, tools: string[] } | undefined;
+  $: if (project) {
+    const currentIndex = projects.findIndex(p => p.slug === project.slug);
+    nextProject = projects[(currentIndex + 1) % projects.length];
+  }
 </script>
 
 {#if project}
   <div class="project-container">
+    <!-- Project Title -->
     <h1 class="project-title">{project.title}</h1>
+
+    <!-- Categories -->
     <div class="categories">
       {#each project.categories as category}
         <CategoryChip label={category} />
       {/each}
     </div>
+
+    <!-- Thumbnail Image -->
     <div class="image-container">
-      <LazyImage src={project.image} alt={project.title} />
+      <LazyImage src={project.image} alt={`${project.title} Image`} />
     </div>
 
+    <!-- Project Details Grid -->
     <div class="details-grid">
       <div class="overview">
         <h2>Overview</h2>
@@ -31,10 +48,13 @@
       </div>
     </div>
 
+    <!-- Tools -->
     <div class="tools">
       <div class="tools-header">
         <h2>Tools</h2>
+
         {#if project.externalLink}
+          <!-- Button for Desktop -->
           <div class="external-link-desktop">
             <ExternalLinkButton link={project.externalLink} />
           </div>
@@ -49,16 +69,18 @@
     </div>
 
     {#if project.externalLink}
+      <!-- Button for Mobile, displayed after tools -->
       <div class="external-link-mobile">
         <ExternalLinkButton link={project.externalLink} />
       </div>
     {/if}
 
+    <!-- Additional Images Section -->
     <div class="additional-images">
       {#if project.images}
         <div class="dieline-images">
           {#each project.images.filter(image => image.type === 'normal') as image}
-            <img src={image.src} alt={`${project.title} Image`} />
+            <LazyImage src={image.src} alt={`${project.title} Image`} /> 
           {/each}
         </div>
         
@@ -70,6 +92,7 @@
       {/if}
     </div>
 
+    <!-- Up Next Section -->
     <div class="up-next">
       <h2 class="next-text">Up Next</h2>
       {#if nextProject}
@@ -109,7 +132,6 @@
     display: flex;
     justify-content: center;
   }
-
 
   .details-grid {
     grid-column: span 12;

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import GeneralButton from "$lib/components/GeneralButton.svelte";
+
   let name = '';
   let email = '';
   let message = '';
@@ -38,18 +40,16 @@
     <label for="message">Message:</label>
     <textarea id="message" rows="5" bind:value={message} required></textarea>
 
-    <button type="submit">Send Message</button>
+    <GeneralButton text="Send Message" width=100% onClick={handleSubmit} />
   </form>
 </div>
 
 <style>
   .contact-page {
-    padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
     display: grid;
-    gap: 1rem;
     grid-column: span 12;
   }
 
@@ -71,19 +71,5 @@
     background-color: var(--background);
     border-top-right-radius: 12px;
     border-bottom-left-radius: 12px;
-  }
-
-  button {
-    color: var(--primary-accent);
-    padding: 0.75rem 1.5rem;
-    border: 1px solid var(--primary-accent);
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: var(--hover-accent);
   }
 </style>

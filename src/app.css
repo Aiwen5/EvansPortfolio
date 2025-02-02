@@ -26,6 +26,10 @@
 	--card-bg: #d0cfd3;
 	--chip-bg: #b9b8ba;
 	--background: #e5e1e6;
+
+	--error-bg: #ffcccc;
+	--error-text: #a00;
+
 	--font-body: 'DM Sans', sans-serif;
 	--font-heading: 'Nohemi', sans-serif;
 }
@@ -39,6 +43,9 @@
 	--card-bg: #0e1816;
 	--chip-bg: #10312b;
 	--background: #030a09;
+
+	--error-bg: #5a1a1a;
+	--error-text: #ffb3b3;
 }
 
 html,

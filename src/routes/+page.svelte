@@ -1,5 +1,5 @@
 <script lang="ts">
-  import projects from '$lib/data/projects.json';
+  import projects from '$lib/data/projects.json' assert { type: 'json' };
   import ProjectCard from '$lib/components/ProjectCard.svelte';
 </script>
 
