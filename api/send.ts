@@ -1,9 +1,9 @@
 import nodemailer from 'nodemailer';
 import { json } from '@sveltejs/kit';
 
-import type { RequestEvent } from '@sveltejs/kit';
+import type { RequestHandler } from '@sveltejs/kit';
 
-export async function POST({ request }: RequestEvent) {
+export const POST: RequestHandler = async ({ request }) => {
   const { name, email, message } = await request.json();
 
   const transporter = nodemailer.createTransport({
@@ -15,10 +15,10 @@ export async function POST({ request }: RequestEvent) {
   });
 
   const mailOptions = {
-    from: email,
+    from: process.env.EMAIL_USER,
     to: 'schatzdesigns7@gmail.com',
     subject: `New Message from ${name}`,
-    text: message,
+    text: `From: ${email}\n\nMessage:\n${message}`,
   };
 
   try {
@@ -28,4 +28,4 @@ export async function POST({ request }: RequestEvent) {
     console.error('Error sending email:', error);
     return json({ message: 'Failed to send email' }, { status: 500 });
   }
-}
+};
