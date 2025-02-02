@@ -3,9 +3,27 @@
   let email = '';
   let message = '';
 
-  const handleSubmit = () => {
-    alert(`Thank you, ${name}! Your message has been sent.`);
-  };
+  const handleSubmit = async () => {
+  try {
+    const response = await fetch('/api/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    if (response.ok) {
+      alert(`Thank you, ${name}! Your message has been sent.`);
+      name = '';
+      email = '';
+      message = '';
+    } else {
+      alert('Failed to send your message. Please try again.');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('An error occurred while sending the message.');
+  }
+};
 </script>
 
 <div class="contact-page">
