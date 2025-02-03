@@ -5,6 +5,7 @@
   export let width: string = '170px';
   export let type: 'button' | 'submit' | 'reset' = 'button';
   export let onClick: () => void = () => {};
+  export let link: string | null = null;
 
   let isDarkMode = false;
 
@@ -23,9 +24,17 @@
   });
 </script>
 
-<button class="general-button" style="width: {width};" type={type} on:click={onClick}>
-  <span>{text}</span>
-</button>
+{#if link}
+  <!-- When link is provided, render as an anchor tag -->
+  <a href={link} target="_blank" rel="noopener noreferrer" class="general-button" style="width: {width};">
+    <span>{text}</span>
+  </a>
+{:else}
+  <!-- Default button behavior -->
+  <button class="general-button" style="width: {width};" type={type} on:click={onClick}>
+    <span>{text}</span>
+  </button>
+{/if}
 
 <style>
   .general-button {
@@ -42,6 +51,7 @@
     position: relative;
     transition: color 0.33s ease, background 0.33s ease;
     z-index: 1;
+    text-decoration: none;
   }
 
   .general-button span {
