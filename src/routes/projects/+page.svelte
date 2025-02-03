@@ -14,8 +14,6 @@
 
 <style>
   .projects-container {
-    max-width: 1200px;
-    margin: 0 auto;
     grid-column: span 12;
   }
 

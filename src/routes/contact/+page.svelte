@@ -46,8 +46,8 @@
 
 <style>
   .contact-page {
-    max-width: 800px;
     margin: 0 auto;
+    width: 600px;
     text-align: center;
     display: grid;
     grid-column: span 12;
@@ -56,12 +56,12 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
   }
 
   label {
     font-weight: bold;
     text-align: left;
+    margin-bottom: 0.5rem;
   }
 
   input, textarea {
@@ -71,5 +71,19 @@
     background-color: var(--background);
     border-top-right-radius: 12px;
     border-bottom-left-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-page {
+      width: 500px;
+      padding: 0 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-page {
+      width: 100%;
+    }
   }
 </style>
