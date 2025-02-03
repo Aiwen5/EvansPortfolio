@@ -66,7 +66,7 @@
 
   @media (max-width: 1024px) {
     .card-image {
-      width: 60%;
+      width: 50%;
     }
 
     .project-title {
