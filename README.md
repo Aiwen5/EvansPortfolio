@@ -2,7 +2,7 @@
 
 Welcome to my personal design and development portfolio! This repository showcases my creative projects, technical skills, and passion for building visually striking and user-friendly digital experiences. From **graphic design** and **branding** to **front-end development**, this portfolio reflects my journey as a digital designer and developer.
 
-Visit the live site here: [evanschatz.design](https://evanschatz.design) 🌐
+Visit the live site here: [evanschatz.vercel.app](https://evanschatz.vercel.app) 🌐
 
 ---
 
@@ -54,14 +54,14 @@ If you're interested in exploring the code or running the project locally:
 
 2. **Install dependencies**:
 
-   ```npm install
-
+   ```bash
+   npm install
    ```
 
 3. **Run the development server:**
 
-   ```npm run dev
-
+   ```bash
+   npm run dev
    ```
 
 4. **View the portfolio:**
