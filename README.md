@@ -1,38 +1,69 @@
-# sv
+# 🎨 Evan Schatz Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Welcome to my personal design and development portfolio! This repository showcases my creative projects, technical skills, and passion for building visually striking and user-friendly digital experiences. From **graphic design** and **branding** to **front-end development**, this portfolio reflects my journey as a digital designer and developer.
 
-## Creating a project
+Visit the live site here: [evanschatz.design](https://evanschatz.design) 🌐
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
 
-```bash
-# create a new project in the current directory
-npx sv create
+## 📁 Table of Contents
 
-# create a new project in my-app
-npx sv create my-app
-```
+1. [About](#about)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Installation](#installation)
+5. [Contact](#contact)
 
-## Developing
+---
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## ✨ About
 
-```bash
-npm run dev
+This portfolio is a curated collection of my work, featuring projects in **graphic design**, **web development**, and **UI/UX**. It highlights my ability to blend creativity with technical skills to deliver compelling digital solutions.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+---
 
-## Building
+## 🚀 Features
 
-To create a production version of your app:
+- **Responsive Design**: Optimized for desktops, tablets, and mobile devices.
+- **Dark Mode Support**: Toggle between light and dark themes for better accessibility.
+- **Lazy Loading Images**: Enhanced performance with smooth image loading.
+- **Dynamic Project Navigation**: Seamlessly explore projects with smooth transitions.
+- **Custom Scroll-to-Top Button**: Easily navigate long pages with a tailored scroll button.
 
-```bash
-npm run build
-```
+---
 
-You can preview the production build with `npm run preview`.
+## 🛠 Technologies Used
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- **Frontend**: [SvelteKit](https://kit.svelte.dev/), TypeScript, HTML5, CSS3
+- **Styling**: Custom CSS Variables, Responsive Design, Animations
+- **Deployment**: [Vercel](https://vercel.com/)
+- **Design Tools**: Adobe Illustrator, Photoshop, Figma
+
+---
+
+## 🖥️ Installation
+
+If you're interested in exploring the code or running the project locally:
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/YourUsername/evan-portfolio.git
+   cd evan-portfolio
+   ```
+
+2. **Install dependencies**:
+
+   ```npm install
+
+   ```
+
+3. **Run the development server:**
+
+   ```npm run dev
+
+   ```
+
+4. **View the portfolio:**
+
+Open http://localhost:5173 in your browser.
