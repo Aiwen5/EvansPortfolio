@@ -1,5 +1,6 @@
 <script>
   import CategoryChip from '$lib/components/CategoryChip.svelte';
+  import LazyImage from '$lib/components/LazyImage.svelte';
   export let project;
 
   // Debugging to ensure project data is correct
@@ -61,6 +62,16 @@
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+  }
+
+  @media (max-width: 1024px) {
+    .card-image {
+      width: 60%;
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+    }
   }
 
   @media (max-width: 768px) {
