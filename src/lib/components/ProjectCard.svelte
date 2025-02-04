@@ -4,7 +4,7 @@
   export let project;
 
   // Debugging to ensure project data is correct
-  console.log('Navigating to project:', project);
+  // console.log('Navigating to project:', project);
 </script>
 
 <a href={`/projects/${project.slug}`} class="card">
