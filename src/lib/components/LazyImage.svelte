@@ -85,7 +85,8 @@
     height: 100%;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
-    background: var(--error-bg);
+    background: var(--background);
+    border: 1px solid var(--error-text);
     color: var(--error-text);
     display: flex;
     align-items: center;
