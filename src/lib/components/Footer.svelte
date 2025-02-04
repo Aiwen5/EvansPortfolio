@@ -38,15 +38,15 @@
     ? '/images/icons/envelope-bold-darkmode.svg' 
     : '/images/icons/envelope-bold.svg';
 
-  const copyEmailToClipboard = () => {
-    navigator.clipboard.writeText(email)
-      .then(() => {
-        alert('Email copied to clipboard!');
-      })
-      .catch(err => {
-        console.error('Failed to copy email:', err);
-      });
-  };
+  // const copyEmailToClipboard = () => {
+  //   navigator.clipboard.writeText(email)
+  //     .then(() => {
+  //       alert('Email copied to clipboard!');
+  //     })
+  //     .catch(err => {
+  //       console.error('Failed to copy email:', err);
+  //     });
+  // };
 </script>
 
 <footer class="footer">
@@ -70,9 +70,12 @@
       <a href="https://www.instagram.com/schatzdesigns7/" target="_blank" rel="noopener noreferrer">
         <img src={instagramIcon} alt="Instagram" />
       </a>
-      <button class="email-button" on:click={copyEmailToClipboard} aria-label="Copy email to clipboard">
+      <a href={`mailto:${email}?subject=Hello%20Evan&body=I%20wanted%20to%20reach%20out%20regarding...`} class="email-button" aria-label="Send email">
         <img src={envelopeIcon} alt="Email" />
-      </button>
+      </a>
+      <!-- <button class="email-button" on:click={copyEmailToClipboard} aria-label="Copy email to clipboard">
+        <img src={envelopeIcon} alt="Email" />
+      </button> -->
     </div>
   </div>
 </footer>
