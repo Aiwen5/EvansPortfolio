@@ -79,8 +79,14 @@
     <div class="additional-images">
       {#if project.images}
         <div class="dieline-images">
-          {#each project.images.filter(image => image.type === 'normal') as image}
+          {#each project.images.filter(image => image.type === 'dieline') as image}
             <LazyImage src={image.src} alt={`${project.title} Image`} dieline={true} /> 
+          {/each}
+        </div>
+
+        <div class="normal-images">
+          {#each project.images.filter(image => image.type === 'normal') as image}
+            <LazyImage src={image.src} alt={`${project.title} Image`} normal={true} /> 
           {/each}
         </div>
         
@@ -183,7 +189,6 @@
   .dieline-images {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2.5rem;
   }
 
   .up-next {

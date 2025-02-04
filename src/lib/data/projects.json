@@ -11,9 +11,9 @@
         { "src": "/images/can-design/TwilightBerryCan.png", "type": "can" },
         { "src": "/images/can-design/GoldenHourCan.png", "type": "can" },
         { "src": "/images/can-design/DawnRiseCan.png", "type": "can" },
-        { "src": "/images/can-design/TwilightBerryDieline.png", "type": "normal" },
-        { "src": "/images/can-design/GoldenHourDieline.png", "type": "normal" },
-        { "src": "/images/can-design/DawnRiseDieline.png", "type": "normal" }
+        { "src": "/images/can-design/TwilightBerryDieline.png", "type": "dieline" },
+        { "src": "/images/can-design/GoldenHourDieline.png", "type": "dieline" },
+        { "src": "/images/can-design/DawnRiseDieline.png", "type": "dieline" }
       ],
     "upNext": {
       "slug": "coltrane-ellington",
@@ -25,11 +25,15 @@
   {
     "slug": "coltrane-ellington",
     "title": "Coltrane and Ellington",
-    "image": "/images/magazine/MagazineCoverImage.png",
+    "image": "/images/jazz-poster/MagazineCoverImage.png",
     "categories": ["Graphic Design", "Poster"],
     "year": 2024,
     "overview": "This poster was created to honour jazz icons Duke Ellington and John Coltrane, blending retro and modern elements to pay tribute to their timeless legacy. The orange and purple color palette was chosen to reflect the original album artwork, creating a visual homage to their collaboration. The typeface used for their names draws inspiration from 1960s design trends while incorporating a contemporary twist, balancing nostalgia with modern aesthetics.\n\nTo integrate the sourced images seamlessly into the design, Coltrane and Ellington were posterized. This approach added elegance, enhanced balance, and unified the composition. The warm, dynamic visuals and bold typography create a striking design that captures the energy and sophistication of jazz. Perfect for music lovers and collectors, this poster serves as a fitting tribute to two of the greatest legends in jazz history.",
     "tools": ["Adobe Illustrator", "Adobe Photoshop"],
+    "images":[
+        { "src": "/images/jazz-poster/PostersUnderTheBridge.png", "type": "normal" },
+        { "src": "/images/jazz-poster/BedroomMockup.png", "type": "normal" }
+      ],
     "upNext": {
       "slug": "fathom-summer-series",
       "title": "Fathom Summer Series",

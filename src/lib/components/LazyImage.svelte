@@ -4,6 +4,7 @@
   export let src: string;
   export let alt: string = '';
   export let dieline: boolean = false;
+  export let normal: boolean = false;
   export let aspectRatio: string = '16 / 9';
 
   let isLoaded = false;
@@ -52,6 +53,7 @@
     on:error={handleError} 
     class:is-visible={isLoaded}
     class:dieline-style={dieline}
+    class:normal-style={normal}
   />
 </div>
 
@@ -60,6 +62,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+    margin-bottom: 2.5rem;
   }
 
   .placeholder {
@@ -82,7 +85,8 @@
     height: 100%;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
-    background: var(--error-bg);
+    background: var(--background);
+    border: 1px solid var(--error-text);
     color: var(--error-text);
     display: flex;
     align-items: center;
@@ -112,6 +116,12 @@
     height: auto;
     object-fit: contain;
     border-radius: 0;
+  }
+
+  img.normal-style {
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    margin-bottom: 1.5rem;
   }
 
   @keyframes pulse {
