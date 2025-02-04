@@ -123,6 +123,10 @@ p {
 		font-size: 2.7rem;
 		margin-top: 1rem;
 	}
+
+	h2 {
+		font-size: 1.25rem;
+	}
 }
 
 .nav-wrapper {

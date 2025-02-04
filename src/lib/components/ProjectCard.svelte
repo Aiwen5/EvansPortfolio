@@ -1,10 +1,17 @@
 <script>
+  import { onMount } from 'svelte';
+  import { hover, animate } from 'motion';
   import CategoryChip from '$lib/components/CategoryChip.svelte';
   import LazyImage from '$lib/components/LazyImage.svelte';
+
   export let project;
 
-  // Debugging to ensure project data is correct
-  // console.log('Navigating to project:', project);
+  onMount(() => {
+    hover('.card', (element) => {
+      animate(element, { scale: 1.03 }, { type: 'spring' });
+      return () => animate(element, { scale: 1 }, { type: 'spring' });
+    });
+  });
 </script>
 
 <a href={`/projects/${project.slug}`} class="card">
@@ -31,11 +38,7 @@
     height: 22rem;
     align-items: center;
     flex-direction: row;
-    transition: transform 0.3s ease;
-  }
-
-  .card:hover {
-    transform: scale(1.02);
+    transition: transform 0.1s ease; /* Optional */
   }
 
   .card-image {
@@ -64,16 +67,6 @@
     flex-wrap: wrap;
   }
 
-  @media (max-width: 1024px) {
-    .card-image {
-      width: 50%;
-    }
-
-    .project-title {
-      font-size: 2.5rem;
-    }
-  }
-
   @media (max-width: 768px) {
     .card {
       flex-direction: column;
@@ -94,12 +87,6 @@
 
     .project-title {
       font-size: 2rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .project-title {
-      font-size: 1.5rem;
     }
   }
 </style>
