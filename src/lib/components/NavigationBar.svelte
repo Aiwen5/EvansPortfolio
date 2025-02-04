@@ -122,7 +122,7 @@
         loading="lazy"
         src={iconSrc}
         alt="Toggle Theme"
-        class="theme-icon"
+        class="theme-icon {isAnimating ? 'animating' : ''}"
       />
     </button>
   </div>
