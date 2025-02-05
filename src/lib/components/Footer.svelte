@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { hover, animate } from 'motion';
 
   let isDarkMode = false;
   const email = 'schatzdesigns7@gmail.com';
@@ -13,11 +12,10 @@
       isDarkMode = true;
     }
 
-    // Apply hover effects to all social icons
-    hover('.social-icon', (element) => {
-      animate(element, { scale: 1.3 }, { type: 'spring' });
-      return () => animate(element, { scale: 1 }, { type: 'spring' });
+    const observer = new MutationObserver(() => {
+      isDarkMode = document.documentElement.classList.contains('dark-mode');
     });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   });
 
   $: logoIconSrc = isDarkMode 
@@ -64,16 +62,16 @@
 
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/evan-schatz/" target="_blank" rel="noopener noreferrer">
-        <img src={linkedinIcon} alt="LinkedIn" class="social-icon" />
+        <img src={linkedinIcon} alt="LinkedIn" />
       </a>
       <a href="https://github.com/Aiwen5" target="_blank" rel="noopener noreferrer">
-        <img src={githubIcon} alt="GitHub" class="social-icon" />
+        <img src={githubIcon} alt="GitHub" />
       </a>
       <a href="https://www.instagram.com/schatzdesigns7/" target="_blank" rel="noopener noreferrer">
-        <img src={instagramIcon} alt="Instagram" class="social-icon" />
+        <img src={instagramIcon} alt="Instagram" />
       </a>
-      <a href={`mailto:${email}?subject=Hello%20Evan&body=I%20wanted%20to%20reach%20out%20regarding...`} aria-label="Send email">
-        <img src={envelopeIcon} alt="Email" class="social-icon" />
+      <a href={`mailto:${email}?subject=Hello%20Evan&body=I%20wanted%20to%20reach%20out%20regarding...`} class="email-button" aria-label="Send email">
+        <img src={envelopeIcon} alt="Email" />
       </a>
       <!-- <button class="email-button" on:click={copyEmailToClipboard} aria-label="Copy email to clipboard">
         <img src={envelopeIcon} alt="Email" />
@@ -145,12 +143,12 @@
   .social-icons img {
     width: 32px;
     height: 32px;
-    transition: transform 0.1s ease;
+    transition: transform 0.3s ease;
     will-change: transform;
   }
 
   .social-icons img:hover {
-    transform: none;
+    transform: scale(1.2);
   }
 
   @media (max-width: 768px) {
