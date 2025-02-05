@@ -95,7 +95,7 @@
   .chip-container {
     margin-top: 0.5rem;
     display: flex;
-    gap: 0.5rem;
+    gap: 0.75rem;
     flex-wrap: wrap;
   }
 
@@ -115,6 +115,10 @@
 
     .card-content {
       width: 100%;
+    }
+
+    .chip-container {
+      gap: 0.5rem;
     }
 
     .project-title {
