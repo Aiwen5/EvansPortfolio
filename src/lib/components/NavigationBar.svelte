@@ -1,69 +1,96 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
-  import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 
   let isMenuOpen = false;
   let currentPath = '';
   let isDarkMode = false;
   let isAnimating = false;
 
-  const toggleTheme = () => {
-    isDarkMode = !isDarkMode;
-    isAnimating = true;
-    // console.log('Theme toggled:', isDarkMode);  // Debugging log
-    document.documentElement.classList.toggle('dark-mode', isDarkMode);
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-    setTimeout(() => {
-      isAnimating = false;
-    }, 600);
-  };
-
-  $: iconSrc = isDarkMode 
-    ? '../images/icons/sun-bold-darkmode.svg' 
-    : '../images/icons/moon-bold.svg';
-
-  $: menuIconSrc = isDarkMode 
-    ? '../images/icons/list-bold-darkmode.svg' 
-    : '../images/icons/list-bold.svg';
-
-  $: logoIconSrc = isDarkMode 
-    ? '../LogoDarkMode.svg' 
-    : '../Logo.svg';
-
-  const handleKeyPress = (e: KeyboardEvent) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      isMenuOpen = !isMenuOpen;
-    }
-  };
-
   const navigationItems = [
-    { text: 'Home', href: '/' },
-    { text: 'Projects', href: '/projects' },
-    { text: 'About', href: '/about' },
-    { text: 'Contact', href: '/contact' }
+    { href: '/', text: 'Home' },
+    { href: '/about', text: 'About' },
+    { href: '/projects', text: 'Projects' },
+    { href: '/contact', text: 'Contact' }
   ];
 
-  // let desktopButton: HTMLButtonElement; // Reference to desktop theme button
+  let menuContainer: HTMLElement | null = null;
+  let menuToggleButton: HTMLElement | null = null;
 
-  onMount(() => {
-    
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-      isDarkMode = true;
-      document.documentElement.classList.add('dark-mode');
+	const toggleTheme = () => {
+		isDarkMode = !isDarkMode;
+		isAnimating = true;
+		
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.toggle('dark-mode', isDarkMode);
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     }
 
-    currentPath = window.location.pathname;
-    if (currentPath === '' || currentPath === '/' || currentPath === '/index.html') {
-      currentPath = '/';
-    }
-  });
+		setTimeout(() => {
+			isAnimating = false;
+		}, 600);
+	};
 
-  afterNavigate(() => {
-    currentPath = window.location.pathname;
-  });
+	$: iconSrc = isDarkMode 
+		? '../images/icons/sun-bold-darkmode.svg' 
+		: '../images/icons/moon-bold.svg';
+
+	$: menuIconSrc = isDarkMode 
+		? '../images/icons/list-bold-darkmode.svg' 
+		: '../images/icons/list-bold.svg';
+
+	$: logoIconSrc = isDarkMode 
+		? '../LogoDarkMode.svg' 
+		: '../Logo.svg';
+
+	const handleKeyPress = (e: KeyboardEvent) => {
+		if (e.key === 'Enter' || e.key === ' ') {
+			isMenuOpen = !isMenuOpen;
+		}
+	};
+
+	const handleClickOutside = (event: MouseEvent) => {
+		if (
+			isMenuOpen &&
+      !(menuContainer && menuContainer.contains(event.target as Node)) &&
+      !(menuToggleButton && menuToggleButton.contains(event.target as Node))
+		) {
+			isMenuOpen = false;
+		}
+	};
+
+	onMount(() => {
+    if (typeof document !== 'undefined') {
+      menuContainer = document.querySelector('.nav-links-mobile');
+      menuToggleButton = document.querySelector('.menu-toggle');
+      document.addEventListener('click', handleClickOutside);
+
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        isDarkMode = true;
+        document.documentElement.classList.add('dark-mode');
+      }
+
+      currentPath = window.location.pathname;
+      if (currentPath === '' || currentPath === '/' || currentPath === '/index.html') {
+        currentPath = '/';
+      }
+    }
+	});
+
+	afterNavigate(() => {
+		if (typeof window !== 'undefined') {
+			currentPath = window.location.pathname;
+		}
+	});
+
+	onDestroy(() => {
+		if (typeof document !== 'undefined') {
+			document.removeEventListener('click', handleClickOutside);
+		}
+	});
 </script>
 
 <nav aria-label="Main navigation" class="navbar {isMenuOpen ? 'menu-open' : ''}">
@@ -99,37 +126,46 @@
   </button>
 
   <!-- Hamburger Icon -->
-  <button class="menu-toggle" aria-label="Toggle menu" on:click={() => isMenuOpen = !isMenuOpen}>
-    <img src={menuIconSrc} alt="Menu Icon" class="menu-icon" />
+  <button 
+  class="menu-toggle" 
+  aria-label="Toggle menu" 
+  on:click={() => isMenuOpen = !isMenuOpen} 
+  bind:this={menuToggleButton}
+  >
+  <img src={menuIconSrc} alt="Menu Icon" class="menu-icon" />
   </button>
 
   <!-- Mobile Menu -->
-  <div class="nav-links-mobile {isMenuOpen ? 'open' : ''}" role="menubar">
-    {#each navigationItems as item}
-      <a
-        href={item.href}
-        class="nav-item {currentPath === item.href ? 'active' : ''}"
-        role="menuitem"
-        on:keydown={handleKeyPress}
-      >
-        {item.text}
-      </a>
-    {/each}
-
-    <button
-      type="button"
-      aria-label="Toggle theme"
-      class="theme-toggle-mobile"
+  <div 
+  class="nav-links-mobile {isMenuOpen ? 'open' : ''}" 
+  role="menubar" 
+  bind:this={menuContainer}
+  >
+  {#each navigationItems as item}
+    <a
+      href={item.href}
+      class="nav-item {currentPath === item.href ? 'active' : ''}"
+      role="menuitem"
       on:keydown={handleKeyPress}
-      on:click={toggleTheme}
     >
-      <img
-        loading="lazy"
-        src={iconSrc}
-        alt="Toggle Theme"
-        class="theme-icon {isAnimating ? 'animating' : ''}"
-      />
-    </button>
+      {item.text}
+    </a>
+  {/each}
+
+  <button
+    type="button"
+    aria-label="Toggle theme"
+    class="theme-toggle-mobile"
+    on:keydown={handleKeyPress}
+    on:click={toggleTheme}
+  >
+    <img
+      loading="lazy"
+      src={iconSrc}
+      alt="Toggle Theme"
+      class="theme-icon {isAnimating ? 'animating' : ''}"
+    />
+  </button>
   </div>
 </nav>
 
