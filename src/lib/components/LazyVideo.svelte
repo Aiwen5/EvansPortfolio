@@ -4,7 +4,9 @@
   export let src: string;
   export let alt: string = '';
   export let aspectRatio: string = '16 / 9';
-  export let width: string = '100%';  // New prop for customizable width
+  export let width: string = '100%';
+  export let blendMode: string = '';  // e.g., 'multiply', 'screen', 'overlay'
+  export let filter: string = '';     // e.g., 'grayscale(100%)', 'contrast(150%)'
 
   let isLoaded = false;
   let hasError = false;
@@ -49,6 +51,7 @@
     on:canplaythrough={handleLoad}
     on:error={handleError}
     class:is-visible={isLoaded}
+    style="mix-blend-mode: {blendMode}; filter: {filter};"
   >
     <track kind="descriptions" label={alt} />
   </video>
