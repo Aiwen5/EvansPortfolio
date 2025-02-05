@@ -132,7 +132,7 @@
     gap: 2.5rem;
   }
 
-  .social-icons a, .email-button {
+  .social-icons a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
