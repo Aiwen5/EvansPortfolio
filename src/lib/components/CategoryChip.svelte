@@ -14,7 +14,8 @@
     font-weight: 600;
     background-color: var(--chip-bg);
     color: var(--primary-accent);
-    border-radius: 9999px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
     text-align: center;
     white-space: nowrap;
   }

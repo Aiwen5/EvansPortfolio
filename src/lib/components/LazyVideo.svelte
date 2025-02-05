@@ -3,16 +3,13 @@
 
   export let src: string;
   export let alt: string = '';
-  export let dieline: boolean = false;
-  export let normal: boolean = false;
   export let aspectRatio: string = '16 / 9';
-  export let width: string = '100%';
+  export let width: string = '100%';  // New prop for customizable width
 
   let isLoaded = false;
   let hasError = false;
-  let imgElement: HTMLImageElement;
+  let videoElement: HTMLVideoElement;
 
-  // Reset loading state when src changes
   $: if (src) {
     isLoaded = false;
     hasError = false;
@@ -27,42 +24,40 @@
   };
 
   onMount(() => {
-    if (imgElement && imgElement.complete) {
-      if (imgElement.naturalWidth !== 0) {
-        handleLoad();
-      } else {
-        handleError();
-      }
+    if (videoElement && videoElement.readyState >= 3) {
+      handleLoad();
     }
   });
 </script>
 
-<div class="image-wrapper" style="aspect-ratio: {aspectRatio}; width: {width};">
+<div class="video-wrapper" style="aspect-ratio: {aspectRatio}; width: {width};">
   {#if !isLoaded && !hasError}
     <div class="placeholder"></div>
   {/if}
-  
+
   {#if hasError}
-    <div class="error-placeholder">Image failed to load</div>
+    <div class="error-placeholder">Video failed to load</div>
   {/if}
-  
-  <img 
-    bind:this={imgElement}
-    src={src} 
-    alt={alt} 
-    on:load={handleLoad} 
-    on:error={handleError} 
+
+  <video
+    bind:this={videoElement}
+    src={src}
+    autoplay
+    loop
+    muted
+    playsinline
+    on:canplaythrough={handleLoad}
+    on:error={handleError}
     class:is-visible={isLoaded}
-    class:dieline-style={dieline}
-    class:normal-style={normal}
-  />
+  >
+    <track kind="descriptions" label={alt} />
+  </video>
 </div>
 
 <style>
-  .image-wrapper {
+  .video-wrapper {
     position: relative;
     overflow: hidden;
-    margin-bottom: 2.5rem;
   }
 
   .placeholder {
@@ -71,9 +66,9 @@
     left: 0;
     width: 100%;
     height: 100%;
+    background: var(--card-bg);
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
-    background: var(--card-bg);
     animation: pulse 0.7s ease-in-out infinite alternate;
   }
 
@@ -83,44 +78,28 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;
-    background: var(--background);
-    border: 1px solid var(--error-text);
+    background: var(--error-bg);
     color: var(--error-text);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
   }
 
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
+  video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0;
     border-bottom-left-radius: 30px;
     border-top-right-radius: 30px;
-    opacity: 0;
     transition: opacity 0.3s ease-in-out;
   }
 
-  img.is-visible {
+  video.is-visible {
     opacity: 1;
-  }
-
-  img.dieline-style {
-    height: auto;
-    object-fit: contain;
-    border-radius: 0;
-  }
-
-  img.normal-style {
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;
-    margin-bottom: 1.5rem;
   }
 
   @keyframes pulse {
