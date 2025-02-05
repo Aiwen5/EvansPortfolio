@@ -1,20 +1,49 @@
-<script>
+<script lang="ts">
   import { onMount } from 'svelte';
-  import { hover, animate } from 'motion';
+  import { hover, animate, inView } from 'motion';
   import CategoryChip from '$lib/components/CategoryChip.svelte';
   import LazyImage from '$lib/components/LazyImage.svelte';
 
   export let project;
 
+  let cardElement: HTMLElement;
+
   onMount(() => {
-    hover('.card', (element) => {
-      animate(element, { scale: 1.03 }, { type: 'spring' });
-      return () => animate(element, { scale: 1 }, { type: 'spring' });
+    // Scroll-linked animation
+    inView(cardElement, (element) => {
+      animate(
+        element,
+        { 
+          opacity: [0, 1], 
+          translateY: ['50px', '0px']
+        },
+        {
+          duration: 0.6,
+          easing: 'ease-out'
+        }
+      );
+    }, {
+      margin: '-50px 0px',
+    });
+
+    // Hover effect that only affects scale
+    hover(cardElement, (element) => {
+      animate(
+        element,
+        { scale: 1.03 },
+        { type: 'spring' }
+      );
+      return () =>
+        animate(
+          element,
+          { scale: 1 },
+          { type: 'spring' }
+        );
     });
   });
 </script>
 
-<a href={`/projects/${project.slug}`} class="card">
+<a bind:this={cardElement} href={`/projects/${project.slug}`} class="card">
   <img src={project.image} alt={project.title} class="card-image" />
   <div class="card-content">
     <h2 class="project-title">{project.title}</h2>
@@ -38,7 +67,10 @@
     height: 22rem;
     align-items: center;
     flex-direction: row;
-    transition: transform 0.1s ease; /* Optional */
+    transition: transform 0.1s ease;
+    opacity: 0;
+    transform: translateY(50px) scale(var(--hover-scale, 1));
+    will-change: transform, opacity;
   }
 
   .card-image {
