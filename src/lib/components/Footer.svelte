@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { hover, animate } from 'motion';
 
   let isDarkMode = false;
   const email = 'schatzdesigns7@gmail.com';
@@ -12,10 +13,11 @@
       isDarkMode = true;
     }
 
-    const observer = new MutationObserver(() => {
-      isDarkMode = document.documentElement.classList.contains('dark-mode');
+    // Apply hover effects to all social icons
+    hover('.social-icon', (element) => {
+      animate(element, { scale: 1.3 }, { type: 'spring' });
+      return () => animate(element, { scale: 1 }, { type: 'spring' });
     });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   });
 
   $: logoIconSrc = isDarkMode 
@@ -38,15 +40,15 @@
     ? '/images/icons/envelope-bold-darkmode.svg' 
     : '/images/icons/envelope-bold.svg';
 
-  const copyEmailToClipboard = () => {
-    navigator.clipboard.writeText(email)
-      .then(() => {
-        alert('Email copied to clipboard!');
-      })
-      .catch(err => {
-        console.error('Failed to copy email:', err);
-      });
-  };
+  // const copyEmailToClipboard = () => {
+  //   navigator.clipboard.writeText(email)
+  //     .then(() => {
+  //       alert('Email copied to clipboard!');
+  //     })
+  //     .catch(err => {
+  //       console.error('Failed to copy email:', err);
+  //     });
+  // };
 </script>
 
 <footer class="footer">
@@ -62,17 +64,20 @@
 
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/evan-schatz/" target="_blank" rel="noopener noreferrer">
-        <img src={linkedinIcon} alt="LinkedIn" />
+        <img src={linkedinIcon} alt="LinkedIn" class="social-icon" />
       </a>
       <a href="https://github.com/Aiwen5" target="_blank" rel="noopener noreferrer">
-        <img src={githubIcon} alt="GitHub" />
+        <img src={githubIcon} alt="GitHub" class="social-icon" />
       </a>
       <a href="https://www.instagram.com/schatzdesigns7/" target="_blank" rel="noopener noreferrer">
-        <img src={instagramIcon} alt="Instagram" />
+        <img src={instagramIcon} alt="Instagram" class="social-icon" />
       </a>
-      <button class="email-button" on:click={copyEmailToClipboard} aria-label="Copy email to clipboard">
+      <a href={`mailto:${email}?subject=Hello%20Evan&body=I%20wanted%20to%20reach%20out%20regarding...`} aria-label="Send email">
+        <img src={envelopeIcon} alt="Email" class="social-icon" />
+      </a>
+      <!-- <button class="email-button" on:click={copyEmailToClipboard} aria-label="Copy email to clipboard">
         <img src={envelopeIcon} alt="Email" />
-      </button>
+      </button> -->
     </div>
   </div>
 </footer>
@@ -140,11 +145,12 @@
   .social-icons img {
     width: 32px;
     height: 32px;
-    transition: transform 0.3s ease;
+    transition: transform 0.1s ease;
+    will-change: transform;
   }
 
   .social-icons img:hover {
-    transform: scale(1.1);
+    transform: none;
   }
 
   @media (max-width: 768px) {

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { afterNavigate } from '$app/navigation';
   import { onMount } from 'svelte';
 
   let isMenuOpen = false;
@@ -9,7 +10,7 @@
   const toggleTheme = () => {
     isDarkMode = !isDarkMode;
     isAnimating = true;
-    console.log('Theme toggled:', isDarkMode);  // Debugging log
+    // console.log('Theme toggled:', isDarkMode);  // Debugging log
     document.documentElement.classList.toggle('dark-mode', isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     setTimeout(() => {
@@ -42,7 +43,7 @@
     { text: 'Contact', href: '/contact' }
   ];
 
-  let desktopButton: HTMLButtonElement; // Reference to desktop theme button
+  // let desktopButton: HTMLButtonElement; // Reference to desktop theme button
 
   onMount(() => {
     
@@ -58,6 +59,10 @@
     if (currentPath === '' || currentPath === '/' || currentPath === '/index.html') {
       currentPath = '/';
     }
+  });
+
+  afterNavigate(() => {
+    currentPath = window.location.pathname;
   });
 </script>
 
@@ -122,7 +127,7 @@
         loading="lazy"
         src={iconSrc}
         alt="Toggle Theme"
-        class="theme-icon"
+        class="theme-icon {isAnimating ? 'animating' : ''}"
       />
     </button>
   </div>
