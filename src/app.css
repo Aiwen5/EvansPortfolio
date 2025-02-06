@@ -99,6 +99,10 @@ p {
 	font-size: 1.25rem;
 }
 
+ul {
+	font-size: 1.25rem;
+}
+
 .layout-grid {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
@@ -121,7 +125,11 @@ p {
 	}
 
 	h2 {
-		font-size: 1.5rem;
+		font-size: 1.75rem;
+	}
+
+	h3 {
+		font-size: 1.25rem;
 	}
 }
 
@@ -139,7 +147,19 @@ p {
 	}
 
 	h2 {
+		font-size: 1.7rem;
+	}
+
+	h3 {
 		font-size: 1.25rem;
+	}
+
+	p {
+		font-size: 1.12rem;
+	}
+
+	ul {
+		font-size: 1.12rem;
 	}
 }
 
