@@ -63,6 +63,11 @@
     flex-direction: column;
     text-align: right;
   }
+  
+  .projects-subtitle {
+    font-size: 3.5rem;
+    text-align: center;
+  }
 
   .hero {
     display: flex;
@@ -86,6 +91,10 @@
     .page-description {
       font-size: 1.15rem;
     }
+
+    .projects-subtitle {
+      font-size: 3rem;
+    }
   }
   @media (max-width: 768px) {
     .projects-grid {
@@ -102,6 +111,10 @@
 
     .headings {
       text-align: center;
+    }
+
+    .projects-subtitle {
+      font-size: 2.5rem;
     }
   }
 </style>

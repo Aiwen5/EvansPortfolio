@@ -54,7 +54,7 @@
     <a href="/" class="logo-link">
       <div class="logo-container">
         <img src={logoIconSrc} alt="Evan Schatz Logo" class="logo" />
-        <span class="name">Evan Schatz</span>
+        <span class="logo-text">Evan Schatz</span>
       </div>
     </a>
 
@@ -109,7 +109,7 @@
     height: auto;
   }
 
-  .name {
+  .logo-text {
     font-size: 1.5rem;
     font-family: var(--font-heading);
     font-weight: 600;
@@ -149,6 +149,29 @@
 
   .social-icons img:hover {
     transform: scale(1.2);
+  }
+
+  @media (max-width: 1024px) {
+    .logo-text {
+      font-size: 1.15rem;
+    }
+
+    .year {
+      font-size: 1rem;
+    }
+
+    .logo {
+      width: 28px;
+    }
+
+    .social-icons img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .social-icons {
+      gap: 2rem;
+    }
   }
 
   @media (max-width: 768px) {
