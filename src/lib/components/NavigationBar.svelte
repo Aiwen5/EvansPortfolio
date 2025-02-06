@@ -300,8 +300,8 @@
 }
 
 .menu-icon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
 }
 
@@ -353,6 +353,40 @@
 }
 
 /* Responsive Design */
+
+@media (max-width: 1024px) {
+  .nav-item {
+    font-size: 1rem;
+  }
+
+  .logo-text {
+    font-size: 1.15rem;
+  }
+
+  .logo {
+    width: 28px;
+  }
+
+  .navbar {
+    padding: 1.2em 3em 1.2em 1.25em;
+  }
+
+  .nav-links {
+    gap: 30px;
+  }
+
+  .theme-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .theme-toggle-mobile .theme-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+}
+
 @media (max-width: 768px) {
   .nav-links {
     display: none; /* Hide desktop links */

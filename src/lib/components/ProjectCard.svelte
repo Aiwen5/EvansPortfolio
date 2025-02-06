@@ -99,6 +99,15 @@
     flex-wrap: wrap;
   }
 
+  @media (max-width: 1024px) {
+    .card {
+      padding: 2rem;
+    }
+
+    .project-title {
+      font-size: 2.5rem;
+    }
+  }
   @media (max-width: 768px) {
     .card {
       flex-direction: column;
