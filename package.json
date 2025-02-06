@@ -165,6 +165,7 @@
 		"lodash.merge": "^4.6.2",
 		"lru-cache": "^10.4.3",
 		"magic-string": "^0.30.17",
+		"marked": "^15.0.6",
 		"merge2": "^1.4.1",
 		"micromatch": "^4.0.8",
 		"mini-svg-data-uri": "^1.4.4",

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { marked } from 'marked';
   import CategoryChip from '$lib/components/CategoryChip.svelte';
   import ProjectCard from '$lib/components/ProjectCard.svelte';
   import ExternalLinkButton from '$lib/components/ExternalLinkButton.svelte';
@@ -39,8 +40,9 @@
     <!-- Project Details Grid -->
     <div class="details-grid">
       <div class="overview">
-        <h2>Overview</h2>
-        <p>{project.overview}</p>
+        <h2>My Process</h2>
+        <!-- Ensure the correct class name is used here -->
+        <div class="structured-content">{@html marked(project.overview)}</div>
       </div>
       <div class="year">
         <h2>Year</h2>
@@ -150,6 +152,28 @@
   .overview {
     grid-column: span 8;
   }
+
+  :global(.structured-content h3) {
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-accent);
+}
+
+:global(.structured-content p) {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+:global(.structured-content ul) {
+  margin-left: 1.5rem;
+  list-style-type: disc;
+}
+
+:global(.structured-content li) {
+  margin-bottom: 0.5rem;
+
+}
 
   .year {
     grid-column: span 4;
