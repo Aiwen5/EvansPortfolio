@@ -43,7 +43,11 @@
   });
 </script>
 
-<a bind:this={cardElement} href={`/projects/${project.slug}`} class="card">
+<a
+  bind:this={cardElement}
+  href={project.caseStudy ? `/case-studies/${project.slug}` : `/projects/${project.slug}`}
+  class="card"
+>
   <img src={project.image} alt={project.title} class="card-image" />
   <div class="card-content">
     <h2 class="project-title">{project.title}</h2>
