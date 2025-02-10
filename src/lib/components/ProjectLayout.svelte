@@ -142,26 +142,25 @@
   }
 
   :global(.structured-content h3) {
-  font-size: 1.4rem;
-  margin-top: 1.5rem;
-  font-weight: bold;
-  color: var(--primary-accent);
-}
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-accent);
+  }
 
-:global(.structured-content p) {
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
+  :global(.structured-content p) {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
 
-:global(.structured-content ul) {
-  margin-left: 1.5rem;
-  list-style-type: disc;
-}
+  :global(.structured-content ul) {
+    margin-left: 1.5rem;
+    list-style-type: disc;
+  }
 
-:global(.structured-content li) {
-  margin-bottom: 0.5rem;
-
-}
+  :global(.structured-content li) {
+    margin-bottom: 0.5rem;
+  }
 
   .year {
     grid-column: span 4;

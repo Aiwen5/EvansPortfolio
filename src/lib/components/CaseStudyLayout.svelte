@@ -1,9 +1,11 @@
 <script lang="ts">
   import CategoryChip from './CategoryChip.svelte';
   import LazyImage from './LazyImage.svelte';
+  import LazyVideo from './LazyVideo.svelte';
   import ExternalLinkButton from './ExternalLinkButton.svelte';
   import { marked } from 'marked';
   import ProjectCard from './ProjectCard.svelte';
+  import PinePersona from './PinePersona.svelte';
 
   export let project;
   export let nextProject;
@@ -29,7 +31,7 @@
     <!-- Project Details Grid -->
     <div class="details-grid">
       <div class="overview">
-        <h2>My Process</h2>
+        <h2>The Project</h2>
         <div class="structured-content">
           {@html project.overview ? marked(project.overview) : ''}
         </div>
@@ -70,7 +72,7 @@
       {#if project.images}
         <div class="dieline-images">
           {#each project.images.filter((image: { type: string }) => image.type === 'dieline') as image}
-            <LazyImage src={image.src} alt={`${project.title} Image`} dieline={true} /> 
+            <LazyImage src={image.src} alt={`${project.title} Image`} normal={true} /> 
           {/each}
         </div>
 
@@ -88,22 +90,84 @@
       {/if}
     </div>
 
-    <!-- Case Study Extra Sections -->
+    <!-- Case Study Sections -->
     {#if project.caseStudySections}
       <div class="case-study-sections">
         {#each project.caseStudySections as section}
           <div class="case-study-section">
-            <h2>{section.heading}</h2>
-            <div class="structured-content">{@html marked(section.text)}</div>
+            <div class="case-study-content">
+              <h2>{section.heading}</h2>
+              <div class="structured-content">
+                {@html marked(section.text)}
+              </div>
+            </div>
 
             {#if section.image}
               <LazyImage src={section.image} alt={section.heading} />
             {/if}
+
+            {#if section.figmaEmbedLink}
+              <div class="figma-embed">
+                <iframe
+                  src={"https://www.figma.com/embed?embed_host=share&url=" + encodeURIComponent(section.figmaEmbedLink)}
+                  allowfullscreen
+                  title={section.heading}
+                ></iframe>
+              </div>
+            {/if}
+
+            {#if section.heading === "Problem & Persona"}
+              <PinePersona />
+            {/if}
+
+            {#if section.heading === "Branding & Style Guide"}
+              <!-- Branding Section -->
+              {#if project.branding}
+              <div class="branding-section">
+
+                <div class="branding-content">
+                  <!-- Logo -->
+                  <div class="branding-logo">
+                    <img src={project.branding.logo} alt="Pine Logo" />
+                  </div>
+
+                  <!-- Fonts -->
+                  <div class="branding-fonts">
+                    <h3>Fonts</h3>
+                    {#each project.branding.fonts as font}
+                      <p class="font-sample" style="font-family: {font.name}">
+                        {font.name} – {font.style}
+                      </p>
+                    {/each}
+                  </div>
+
+                  <!-- Colors -->
+                  <div class="branding-colors">
+                    <h3>Colors</h3>
+                    <div class="color-grid">
+                      {#each project.branding.colors as color}
+                        <div class="color-swatch">
+                          <div class="color-box" style="background-color: {color.hex};"></div>
+                          <p>{color.name} <span>{color.hex}</span></p>
+                        </div>
+                      {/each}
+                    </div>
+                  </div>
+
+                  <!-- Animation -->
+                  <div class="branding-animation">
+                    <h3>Loading Animation</h3>
+                    <LazyVideo src={project.branding.animation} alt="Pine Animation" aspectRatio="4 / 3" />
+                  </div>
+                </div>
+              </div>
+              {/if}
+            {/if}
+
           </div>
         {/each}
       </div>
     {/if}
-
     <!-- Up Next Section -->
     <div class="up-next">
       <h2 class="next-text">Up Next</h2>
@@ -118,8 +182,6 @@
 
 <style>
   .project-container {
-    display: grid;
-    gap: 1rem;
     grid-column: span 12;
   }
 
@@ -196,11 +258,13 @@
     margin: 2rem 0;
   }
 
+  .case-study-content {
+    padding: 0 3rem;
+    margin-bottom: 1rem;
+  }
+
   .case-study-section {
     grid-column: span 12;
-    padding: 1.5rem;
-    background: var(--card-bg);
-    border-radius: 10px;
   }
 
   .external-link-desktop {
@@ -208,10 +272,6 @@
   }
   .external-link-mobile {
     display: none;
-  }
-
-  .case-study-section h2 {
-    margin-bottom: 1rem;
   }
 
   .can-images {
@@ -234,6 +294,75 @@
     text-align: center;
     margin-bottom: 1rem;
     font-size: 4rem;
+  }
+
+  .figma-embed {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+
+  .figma-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+/* branding section */
+  .branding-section {
+    grid-column: span 12;
+    background: var(--bgAccent);
+    padding: 0 3rem;
+    border-radius: 15px;
+    margin-top: 3rem;
+  }
+
+  .branding-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .branding-logo img {
+    width: 160px;
+  }
+
+  .branding-fonts {
+    flex: 1;
+  }
+
+  .font-sample {
+    font-size: var(--font-h2-size);
+  }
+
+  .branding-colors {
+    flex: 2;
+  }
+
+  .color-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .color-swatch {
+    text-align: center;
+  }
+
+  .color-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+  }
+
+  .branding-animation {
+    flex: 3;
   }
 
   @media (max-width: 1024px) {
@@ -290,8 +419,8 @@
       grid-template-columns: 1fr;
     }
 
-    .case-study-section {
-      padding: 1rem;
+    .case-study-content {
+      padding: 0;
     }
 
     .next-text {

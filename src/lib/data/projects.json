@@ -64,52 +64,60 @@
     "title": "Pine",
     "slug": "pine",
     "caseStudy": true,
-    "introduction": "Pine is a web application designed to simplify dining decisions by helping users find restaurants and discover recipes based on their preferences and budget. Through a seamless user experience, Pine eliminates the frustration of meal planning, offering personalized recommendations for both dining out and cooking at home.",
+    "overview": "Pine is a web application designed to simplify dining decisions by helping users find restaurants and discover recipes based on their preferences and budget. Through a seamless user experience, Pine eliminates the frustration of meal planning, offering personalized recommendations for both dining out and cooking at home.",
     "year": 2024,
     "tools": ["Figma", "Next.js", "Node.js", "Spoonacular API", "Google Maps API", "Adobe Illustrator", "Lottie"],
     "image": "/images/pine/Thumbnail.png",
     "categories": ["Development", "UI/UX Design", "Case Study"],
     "externalLink": "https://pine-app.vercel.app/",
+    "branding": {
+      "logo": "/images/pine/PineLogo.svg",
+      "fonts": [
+        { "name": "Oswald", "style": "Heading Font" },
+        { "name": "Poppins", "style": "Body Font" }
+      ],
+      "colors": [
+        { "hex": "#2B3F47" },
+        { "hex": "#EFFFF8" },
+        { "hex": "#C2EEE1" },
+        { "hex": "#46757C" }
+      ],
+      "animation": "/images/pine/pine-animation.webm"
+    },
     "caseStudySections": [
       {
-        "heading": "Lo-Fi & Architecture",
-        "text": "The project began with ideation, market research, and user personas to define the needs of the target audience. Initial low-fidelity wireframes were created in Figma, focusing on user flows for onboarding, restaurant discovery, and recipe selection.",
-        "image": "/images/pine/Thumbnail.png"
+        "heading": "Problem & Persona",
+        "text": "Many people struggle with meal planning—whether it’s deciding where to eat or finding recipes that fit their dietary preferences and budget. **Pine** solves this by offering a streamlined web app that curates both restaurant suggestions and recipe recommendations based on user preferences. \n\nThe app is designed with accessibility and inclusivity in mind, ensuring a seamless experience for all users, including those with dietary restrictions and visual impairments."
       },
       {
-        "heading": "Key Lo-Fi Contributions",
-        "text": "• Designed the Onboarding & Quiz flow, including the landing page, tutorial screens, and mascot animation.\n• Structured the directories and pages, such as category pages, dish descriptions, locations, FAQs, and shopping lists.\n• Developed core components, including buttons, headers, progress indicators, and popups for seamless navigation.",
-        "image": "/images/pine/Thumbnail.png"
+        "heading": "Lo-Fi & User Flow",
+        "text": "The project started with **market research and user personas** to shape the ideal user experience. Low-fidelity wireframes were created in Figma, mapping out key interactions such as onboarding, personalized meal selection, and restaurant discovery. \n\nThe user flow was designed to be intuitive—guiding users from an interactive quiz to tailored recommendations in just a few steps.",
+        "figmaEmbedLink": "https://www.figma.com/file/CxUggvw8b9vrQTK2ioP5JE/MDIA-2106-Pine?node-id=1522-3685"
       },
       {
         "heading": "Branding & Style Guide",
-        "text": "To establish a cohesive and inviting visual identity, Pine’s branding was designed with clarity and warmth in mind.",
-        "image": "/images/pine/Thumbnail.png"
+        "text": "Pine's branding is clean, modern, and inviting. The **earthy color palette** enhances clarity and accessibility, while the **Oswald and Poppins** typefaces ensure readability with some personality. A **custom Lottie animation** of the Pine mascot flipping a pancake adds personality and engagement to loading screens."
       },
       {
-        "heading": "Key Branding Elements",
-        "text": "• Logo Design: Multiple variations created to ensure versatility across digital platforms.\n• Color Palette & Typography: Selected to balance modern minimalism with approachability.\n• Illustrations & Animations: Custom Lottie animations, including the mascot flipping a pancake as a loading screen.",
-        "image": "/images/pine/Thumbnail.png"
+        "heading": "Main Features",
+        "text": "Pine offers **two core functions**:  \n **Restaurant Finder** – Users select a craving (Asian, Western, fast food, desserts, etc.), and Pine suggests nearby restaurants.  \n **Recipe Finder** – Users can browse recipes, view full ingredient lists, and follow step-by-step instructions."
       },
       {
-        "heading": "Main Features & Development",
-        "text": "The technical implementation involved front-end development, API integration, and database architecture to create a dynamic and scalable application.",
-        "image": "/images/pine/Thumbnail.png"
+        "heading": "Development & Integration",
+        "text": "The app is powered by **Spoonacular API** for meal recommendations and **Google Maps API** for interactive restaurant listings. A **custom-built database** organizes dish data, and a graph component visualizes nutritional information in real-time."
       },
       {
-        "heading": "Core Features Developed",
-        "text": "✔ Personalized Quiz – Integrated with Spoonacular API to tailor meal recommendations.\n✔ Restaurant Map (WOW Feature) – Utilized Google Maps API to display interactive restaurant cards.\n✔ Dynamic Dish Descriptions – Created a database for dishes and a graph component to visualize nutritional data.\n✔ Recipe & Shopping List Integration – Designed seamless ingredient and step-by-step instruction pages.\n✔ Reusable Components – Developed buttons, search bars, popups, and snackbars for UI consistency.",
-        "image": "/images/pine/Thumbnail.png"
+        "heading": "Core Features",
+        "text": "**Personalized Quiz** – Gathers user preferences for tailored recommendations.  \n**Restaurant Map (WOW Feature)** – Displays interactive restaurant cards using Google Maps API.  \n**Dynamic Dish Descriptions** – Stores and retrieves meal data efficiently.  \n**Recipe & Shopping List** – Offers step-by-step instructions and an ingredient list.  \n**Reusable UI Components** – Includes buttons, search bars, popups, and snackbars."
       },
       {
         "heading": "Conclusion",
-        "text": "Pine was built to remove the frustration of meal decisions, empowering users to enjoy effortless dining whether they’re eating out or cooking at home. The project showcases a strong blend of UI/UX design, branding, and technical development, demonstrating a well-rounded approach to problem-solving in digital product design.",
-        "image": "/images/pine/Thumbnail.png"
+        "text": "Pine simplifies meal planning, ensuring users can quickly discover dining options or cook meals tailored to their needs. The project showcases a **strong balance of UI/UX design, branding, and technical development**, making it an accessible and user-friendly dining assistant."
       }
     ],
     "additionalImages": [
       "/images/pine/Thumbnail.png",
-      "/images/pine/Thumbnail.pngg",
+      "/images/pine/Thumbnail.png",
       "/images/pine/Thumbnail.png"
     ]
   }

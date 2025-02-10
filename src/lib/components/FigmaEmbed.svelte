@@ -1,10 +1,23 @@
-<script lang="ts">
-  export let figmaUrl: string;
-</script>
+<div class="figma-container">
+  <iframe 
+    src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/your-figma-file-id"
+    title="Figma Design"
+    allowfullscreen>
+  </iframe>
+</div>
 
-<iframe 
-  title="Figma Embed"
-  style="border: 1px solid #ccc; width: 100%; height: 500px;" 
-  src={`https://www.figma.com/embed?embed_host=share&url=${figmaUrl}`} 
-  allowfullscreen>
-</iframe>
+<style>
+  .figma-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+  .figma-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>

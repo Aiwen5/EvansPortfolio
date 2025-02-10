@@ -95,7 +95,15 @@ h2 {
 	font-weight: 600;
 }
 
+h3 {
+	font-size: 1.5rem;
+}
+
 p {
+	font-size: 1.25rem;
+}
+
+blockquote {
 	font-size: 1.25rem;
 }
 
@@ -155,6 +163,10 @@ ul {
 	}
 
 	p {
+		font-size: 1.12rem;
+	}
+
+	blockquote {
 		font-size: 1.12rem;
 	}
 
