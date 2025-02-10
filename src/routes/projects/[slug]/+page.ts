@@ -8,9 +8,12 @@ export const load: PageLoad = ({ params }) => {
         throw new Error('Project not found');
     }
 
+    
+
     // Find the next project in sequence
     const currentIndex = projects.findIndex(p => p.slug === project.slug);
     const nextProject = projects[(currentIndex + 1) % projects.length];
+    
 
     return { project, nextProject };
 };

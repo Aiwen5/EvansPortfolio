@@ -180,6 +180,7 @@
   <p>Project not found</p>
 {/if}
 
+
 <style>
   .project-container {
     grid-column: span 12;
