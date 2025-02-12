@@ -16,10 +16,30 @@
         { "name": "Poppins", "style": "Body" }
       ],
       "colors": [
-        { "hex": "#2B3F47" },
-        { "hex": "#EFFFF8" },
-        { "hex": "#C2EEE1" },
-        { "hex": "#46757C" }
+        {
+          "name": "Charcoal",
+          "hex": "#2B3F47",
+          "rgb": [43, 63, 71],
+          "hsl": [200, 25, 22]
+        },
+        {
+          "name": "Mint Cream",
+          "hex": "#EFFFF8",
+          "rgb": [239, 255, 248],
+          "hsl": [150, 100, 97]
+        },
+        {
+          "name": "Mint Green",
+          "hex": "#C2EEE1",
+          "rgb": [194, 238, 225],
+          "hsl": [164, 56, 85]
+        },
+        {
+          "name": "Myrtle Green",
+          "hex": "#46757C",
+          "rgb": [70, 117, 124],
+          "hsl": [188, 27, 38]
+        }
       ],
       "animation": "/images/pine/pine-animation.webm"
     },

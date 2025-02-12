@@ -121,46 +121,53 @@
             {/if}
 
             {#if section.heading === "Branding & Style Guide"}
-              <!-- Branding Section -->
               {#if project.branding}
-              <div class="branding-section">
-
-                <div class="branding-content">
-                  <!-- Logo -->
-                  <div class="branding-logo">
-                    <img src={project.branding.logo} alt="Pine Logo" />
+                <div class="branding-section">
+            
+                  <!-- Brand Identity Section (Logo & Animation) -->
+                  <div class="branding-row">
+                    <h3>Logo & Animation</h3>
+                    <div class="brand-identity">
+                      <div class="branding-logo">
+                        <img src={project.branding.logo} alt="Pine Logo" />
+                      </div>
+                      <div class="branding-animation">
+                        <LazyVideo src={project.branding.animation} alt="Pine Animation" aspectRatio="4 / 3" width="180px" />
+                      </div>
+                    </div>
                   </div>
-
-                  <!-- Fonts -->
-                  <div class="branding-fonts">
+            
+                  <!-- Fonts Section -->
+                  <div class="branding-row">
                     <h3>Fonts</h3>
-                    {#each project.branding.fonts as font}
-                      <p class="font-sample" style="font-family: {font.name}">
-                        {font.name} – {font.style}
-                      </p>
-                    {/each}
+                    <div class="branding-fonts">
+                      {#each project.branding.fonts as font}
+                        <p class="font-sample" style="font-family: {font.name}">
+                          {font.name} – {font.style}
+                        </p>
+                      {/each}
+                    </div>
                   </div>
-
-                  <!-- Colors -->
-                  <div class="branding-colors">
+            
+                  <!-- Colors Section -->
+                  <div class="branding-row">
                     <h3>Colors</h3>
                     <div class="color-grid">
                       {#each project.branding.colors as color}
-                        <div class="color-swatch">
+                        <div class="color-card">
                           <div class="color-box" style="background-color: {color.hex};"></div>
-                          <p>{color.name} <span>{color.hex}</span></p>
+                          <div class="color-details">
+                            <p class="color-name">{color.name}</p>
+                            <p class="color-hex">{color.hex}</p>
+                            <p class="color-rgb">rgb({color.rgb.join(", ")})</p>
+                            <p class="color-hsl">hsl({color.hsl.join(", ")})</p>
+                          </div>
                         </div>
                       {/each}
                     </div>
                   </div>
-
-                  <!-- Animation -->
-                  <div class="branding-animation">
-                    <h3>Loading Animation</h3>
-                    <LazyVideo src={project.branding.animation} alt="Pine Animation" aspectRatio="4 / 3" />
-                  </div>
+            
                 </div>
-              </div>
               {/if}
             {/if}
 
@@ -317,53 +324,89 @@
 /* branding section */
   .branding-section {
     grid-column: span 12;
-    background: var(--bgAccent);
-    padding: 0 3rem;
-    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
     margin-top: 3rem;
+    text-align: center;
+    width: 100%;
   }
 
-  .branding-content {
+  .branding-row {
+    margin-bottom: 2rem;
+  }
+
+  .branding-row h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .brand-identity {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 2rem;
-    justify-content: center;
   }
 
   .branding-logo img {
     width: 160px;
   }
 
-  .branding-fonts {
+  .branding-animation {
     flex: 1;
+  }
+
+  /* Fonts Section */
+  .branding-fonts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
   .font-sample {
     font-size: var(--font-h2-size);
   }
 
-  .branding-colors {
-    flex: 2;
-  }
-
+  /* Colors Section */
   .color-grid {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    gap: 20px;
   }
 
-  .color-swatch {
+  .color-card {
+    padding: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  .color-box {
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
+  .color-details {
+    margin-top: 0.5rem;
   }
 
-  .branding-animation {
-    flex: 3;
+  .color-name {
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+
+  .color-hex, .color-rgb, .color-hsl {
+    font-size: 0.875rem;
+    color: var(--primary);
+  }
+
+  .color-box {
+    width: 100px;
+    height: 80px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
   }
 
   @media (max-width: 1024px) {
@@ -418,6 +461,14 @@
 
     .can-images {
       grid-template-columns: 1fr;
+    }
+
+    .brand-identity {
+      flex-direction: column;
+    }
+
+    .color-grid {
+      flex-direction: column;
     }
 
     .case-study-content {
