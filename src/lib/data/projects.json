@@ -6,7 +6,7 @@
     "overview": "Pine is a web application designed to simplify dining decisions by helping users find restaurants and discover recipes based on their preferences. Pine eliminates the frustration of meal planning, offering personalized recommendations for both dining out and cooking at home.",
     "year": 2024,
     "tools": ["Figma", "Next.js", "Node.js", "Spoonacular API", "Google Maps API", "Adobe After Effects", "Adobe Illustrator", "Lottie"],
-    "image": "/images/pine/Thumbnail.png",
+    "image": "/images/pine/Thumbnail.jpg",
     "categories": ["Development", "UI/UX Design", "Case Study"],
     "externalLink": "https://pine-app.vercel.app/",
     "branding": {
