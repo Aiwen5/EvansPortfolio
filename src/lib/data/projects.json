@@ -6,20 +6,40 @@
     "overview": "Pine is a web application designed to simplify dining decisions by helping users find restaurants and discover recipes based on their preferences. Pine eliminates the frustration of meal planning, offering personalized recommendations for both dining out and cooking at home.",
     "year": 2024,
     "tools": ["Figma", "Next.js", "Node.js", "Spoonacular API", "Google Maps API", "Adobe After Effects", "Adobe Illustrator", "Lottie"],
-    "image": "/images/pine/Thumbnail.png",
+    "image": "/images/pine/Thumbnail.jpg",
     "categories": ["Development", "UI/UX Design", "Case Study"],
     "externalLink": "https://pine-app.vercel.app/",
     "branding": {
       "logo": "/images/pine/PineLogo.svg",
       "fonts": [
-        { "name": "Oswald", "style": "Heading Font" },
-        { "name": "Poppins", "style": "Body Font" }
+        { "name": "Oswald", "style": "Heading" },
+        { "name": "Poppins", "style": "Body" }
       ],
       "colors": [
-        { "hex": "#2B3F47" },
-        { "hex": "#EFFFF8" },
-        { "hex": "#C2EEE1" },
-        { "hex": "#46757C" }
+        {
+          "name": "Charcoal",
+          "hex": "#2B3F47",
+          "rgb": [43, 63, 71],
+          "hsl": [200, 25, 22]
+        },
+        {
+          "name": "Mint Cream",
+          "hex": "#EFFFF8",
+          "rgb": [239, 255, 248],
+          "hsl": [150, 100, 97]
+        },
+        {
+          "name": "Mint Green",
+          "hex": "#C2EEE1",
+          "rgb": [194, 238, 225],
+          "hsl": [164, 56, 85]
+        },
+        {
+          "name": "Myrtle Green",
+          "hex": "#46757C",
+          "rgb": [70, 117, 124],
+          "hsl": [188, 27, 38]
+        }
       ],
       "animation": "/images/pine/pine-animation.webm"
     },
@@ -39,7 +59,8 @@
       },
       {
         "heading": "Main Functionality",
-        "text": "Pine offers **two core functions**:  \n **Restaurant Finder** – Users select a craving (Asian, Western, fast food, desserts, etc.), and Pine suggests nearby restaurants.  \n **Recipe Finder** – Users can browse recipes, view full ingredient lists, and follow step-by-step instructions."
+        "text": "Pine offers **two core functions**:  \n **Restaurant Finder** – Users select a craving (Asian, Western, fast food, desserts, etc.), and Pine suggests nearby restaurants.  \n **Recipe Finder** – Users can browse recipes, view full ingredient lists, and follow step-by-step instructions.",
+        "image": "/images/pine/2Phone.png"
       },
       {
         "heading": "Development & Integration",
@@ -51,9 +72,25 @@
       },
       {
         "heading": "Conclusion",
-        "text": "Pine simplifies meal planning, ensuring users can quickly discover dining options or cook meals tailored to their needs. The project showcases a **strong balance of UI/UX design, branding, and technical development**, making it an accessible and user-friendly dining assistant."
+        "text": "Pine simplifies meal planning, ensuring users can quickly discover dining options or cook meals tailored to their needs. This project included a **strong balance of UI/UX design, branding, and technical development**, making it an accessible and user-friendly dining assistant."
       }
-    ],
+    ]
+  },
+  {
+    "slug": "kenzo-tange-magazine",
+    "title": "Kenzo Tange Magazine",
+    "caseStudy": false,
+    "image": "/images/kenzo-magazine/Thumbnail.jpg",
+    "categories": ["Graphic Design", "Editorial Design", "Print"],
+    "externalLink": "https://indd.adobe.com/view/fdf8a8d1-8f87-4529-892e-0b74825b4605",
+    "year": 2024,
+    "overview": "This magazine spread pays tribute to the architectural legacy of Kenzo Tange, a pioneering Japanese architect known for his innovative designs. The layout features a minimalist aesthetic, with a focus on clean lines and ample white space to reflect Tange’s modernist approach. The typography is bold and structured, mirroring the architectural elements of Tange’s work. The color palette is inspired by the materials used in his buildings, such as concrete and steel, creating a cohesive and harmonious design. Through thoughtful composition and attention to detail, this magazine spread captures the essence of Tange’s architectural vision and celebrates his lasting impact on the field.",
+    "tools": ["Adobe InDesign", "Adobe Photoshop"],
+    "images": [
+        { "src": "/images/kenzo-magazine/SingleSpread.jpg", "type": "normal" },
+        { "src": "/images/kenzo-magazine/Spreads.jpg", "type": "normal" }
+
+      ],
     "upNext": {
       "slug": "fathom-summer-series",
       "title": "Fathom Summer Series",
@@ -65,15 +102,15 @@
     "slug": "fathom-summer-series",
     "title": "Fathom Summer Series",
     "caseStudy": false,
-    "image": "/images/can-design/ThreeCanMockup.png",
+    "image": "/images/can-design/ThreeCanMockup.jpg",
     "categories": ["Graphic Design", "Packaging", "Branding"],
     "year": 2024,
     "overview": "The Fathom Summer Series was created to capture the essence of summer through a line of craft beers, each inspired by a distinct time of day. Designed for Canadian consumers, the series balances vibrant visuals with bilingual labeling to meet packaging standards while reflecting the adventurous, geometric identity of the Fathom brand.\n\n### Bold, Geometric Design\nEach can features sharp, geometric fruit illustrations that align with Fathom’s brand style, emphasizing clean shapes and bold lines. Brand cohesion is maintained through this consistent aesthetic, with a unifying line graphic tying the series together.\n\n### Flavours Inspired by Summer\n- **Dawn Rise** (Blood Orange & Ginger Wheat Ale) captures the energy of morning.\n- **Golden Hour** (Mango & Pineapple Pale Ale) reflects the brightness of midday.\n- **Twilight Berry** (Blackberry & Lavender Saison) evokes the calm of twilight.\n\n### Custom Iconography\nIcons highlight key flavour profiles like crispness and malt, giving consumers a clear sense of what to expect while adding depth to the design.\n\n### Shelf Appeal\nWith vibrant colors, bold graphics, and a clear story, the Fathom Summer Series stands out on shelves, inviting consumers to experience the adventure of summer through Fathom’s unique lens.",
     "tools": ["Adobe Illustrator", "Adobe Photoshop"],
     "images": [
-        { "src": "/images/can-design/TwilightBerryCan.png", "type": "can" },
-        { "src": "/images/can-design/GoldenHourCan.png", "type": "can" },
-        { "src": "/images/can-design/DawnRiseCan.png", "type": "can" },
+        { "src": "/images/can-design/TwilightBerryCanMock.jpg", "type": "can" },
+        { "src": "/images/can-design/GoldenHourCanMock.jpg", "type": "can" },
+        { "src": "/images/can-design/DawnRiseCanMock.jpg", "type": "can" },
         { "src": "/images/can-design/TwilightBerryDieline.png", "type": "dieline" },
         { "src": "/images/can-design/GoldenHourDieline.png", "type": "dieline" },
         { "src": "/images/can-design/DawnRiseDieline.png", "type": "dieline" }
