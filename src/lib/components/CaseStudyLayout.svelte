@@ -42,16 +42,16 @@
       </div>
     </div>
 
+    {#if project.externalLink}
+      <div class="external-link-desktop">
+        <ExternalLinkButton link={project.externalLink} />
+      </div>
+    {/if}
+
     <!-- Tools -->
     <div class="tools">
       <div class="tools-header">
         <h2>Tools</h2>
-
-        {#if project.externalLink}
-          <div class="external-link-desktop">
-            <ExternalLinkButton link={project.externalLink} />
-          </div>
-        {/if}
       </div>
 
       <div class="tool-chips">
@@ -280,6 +280,7 @@
 
   .external-link-desktop {
     display: block;
+    margin-left: 3rem;
   }
   .external-link-mobile {
     display: none;
