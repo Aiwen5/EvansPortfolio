@@ -21,7 +21,7 @@
 :root {
 	--primary-accent: #10312b; /* Pantone 627 C */
 	--primary-accent-light: #e5e1e6; /* Pantone 663 C */
-	--primary-accent-dark: #61726f; /* Pantone 433 C */
+	--primary-accent-dark: #50605d; /* Pantone 433 C */
 	--secondary-accent: #efc2b3; /* Pantone 489 C */
 	--hover-accent: rgba(16, 49, 43, 0.55); /* 55% opacity of primary accent */
 	--card-bg: #d0cfd3;
@@ -51,7 +51,7 @@
 .dark-mode {
 	--primary-accent: #e5e1e6;
 	--primary-accent-light: #030a09;
-	--primary-accent-dark: #889190;
+	--primary-accent-dark: #9da7a5;
 	--secondary-accent: #efc2b3;
 	--hover-accent: #888389;
 	--card-bg: #0e1816;

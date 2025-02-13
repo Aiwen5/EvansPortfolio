@@ -205,6 +205,7 @@
     .persona-container {
       grid-template-columns: 1fr;
       padding: 0.85rem;
+      gap: 0;
     }
   }
 </style>

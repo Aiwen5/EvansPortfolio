@@ -142,9 +142,12 @@
                     <h3>Fonts</h3>
                     <div class="branding-fonts">
                       {#each project.branding.fonts as font}
-                        <p class="font-sample" style="font-family: {font.name}">
-                          {font.name} – {font.style}
-                        </p>
+                        <div class="font-sample">
+                          <div class="font-preview" style="font-family: {font.name}">Aa</div>
+                          <p class="font-sample-text" style="font-family: {font.name}">
+                            {font.name} – {font.style}
+                          </p>
+                        </div>
                       {/each}
                     </div>
                   </div>
@@ -344,7 +347,7 @@
   .branding-row h3 {
     font-size: 1.5rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .brand-identity {
@@ -366,10 +369,32 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
   }
 
   .font-sample {
     font-size: var(--font-h2-size);
+  }
+
+  .branding-fonts {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .font-sample {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .font-preview {
+    font-size: 5rem;
+    line-height: 4rem;
+  }
+
+  .font-sample-text {
+    font-size: 1.25rem;
   }
 
   /* Colors Section */
@@ -467,8 +492,13 @@
       flex-direction: column;
     }
 
+    .branding-section {
+      padding: 1rem;
+    }
+
     .color-grid {
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .case-study-content {

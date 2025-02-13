@@ -38,17 +38,17 @@
       </div>
     </div>
 
+    {#if project.externalLink}
+      <!-- Button for Desktop -->
+      <div class="external-link-desktop">
+        <ExternalLinkButton link={project.externalLink} />
+      </div>
+    {/if}
+
     <!-- Tools -->
     <div class="tools">
       <div class="tools-header">
         <h2>Tools</h2>
-
-        {#if project.externalLink}
-          <!-- Button for Desktop -->
-          <div class="external-link-desktop">
-            <ExternalLinkButton link={project.externalLink} />
-          </div>
-        {/if}
       </div>
 
       <div class="tool-chips">
@@ -165,6 +165,10 @@
   .year {
     grid-column: span 4;
     text-align: right;
+  }
+
+  .external-link-desktop {
+    margin-left: 3rem;
   }
 
   .tools {

@@ -196,12 +196,6 @@
   gap: 10px;
 }
 
-.logo {
-  width: 33px;
-  height: auto;
-  object-fit: contain;
-}
-
 .logo-text {
   font-size: 1.5rem;
   font-weight: 600;
@@ -210,11 +204,50 @@
   top: 2.3px;
 }
 
+/* Logo Hover Effect with Smooth Tilt Bounce */
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.4s ease-out;
+}
+
+.logo {
+  width: 33px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.4s ease-out;
+}
+
+/* Hover Effect - Tilting Bounce */
+.logo-link:hover .logo {
+  animation: tiltBounce 0.5s ease-in-out;
+}
+
+@keyframes tiltBounce {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
 /* Navigation Links */
 .nav-links {
   display: flex;
   gap: 40px;
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.2s ease-in-out;
 }
 
 .nav-item {
@@ -224,7 +257,7 @@
   font-weight: 500;
   color: var(--hover-accent);
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 /* Underline Stroke Effect */
