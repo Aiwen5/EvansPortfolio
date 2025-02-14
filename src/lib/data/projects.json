@@ -46,33 +46,43 @@
     "caseStudySections": [
       {
         "heading": "Problem & Persona",
-        "text": "Many people struggle with meal planning—whether it’s deciding where to eat or finding recipes that fit their dietary preferences and budget. **Pine** solves this by offering a streamlined web app that curates both restaurant suggestions and recipe recommendations based on user preferences. \n\nThe app is designed with accessibility and inclusivity in mind, ensuring a seamless experience for all users, including those with dietary restrictions and visual impairments."
+        "text": "Many people struggle with meal planning—whether it’s deciding where to eat or finding recipes that fit their dietary preferences and budget. **Pine** solves this by offering a streamlined web app that curates both restaurant suggestions and recipe recommendations based on user preferences. \n\nThe app is designed with accessibility and inclusivity in mind, ensuring a seamless experience for all users, including those with dietary restrictions and visual impairments.",
+        "layout": "row"
       },
       {
         "heading": "Lo-Fi & User Flow",
         "text": "The project started with **market research and user personas** to shape the ideal user experience. Low-fidelity wireframes were created in Figma, mapping out key interactions such as onboarding, personalized meal selection, and restaurant discovery. \n\nThe user flow was designed to be intuitive—guiding users from an interactive quiz to tailored recommendations in just a few steps.",
-        "figmaEmbedLink": "https://www.figma.com/file/CxUggvw8b9vrQTK2ioP5JE/MDIA-2106-Pine?node-id=1522-3685"
+        "figmaEmbedLink": "https://www.figma.com/file/CxUggvw8b9vrQTK2ioP5JE/MDIA-2106-Pine?node-id=1522-3685",
+        "layout": "row"
       },
       {
         "heading": "Branding & Style Guide",
-        "text": "Pine's branding is clean, modern, and inviting. The **earthy color palette** enhances clarity and accessibility, while the **Oswald and Poppins** typefaces ensure readability with some personality. A **custom Lottie animation** of the Pine mascot flipping a pancake adds personality and engagement to loading screens."
+        "text": "Pine's branding is clean, modern, and inviting. The **earthy color palette** enhances clarity and accessibility, while the **Oswald and Poppins** typefaces ensure readability with some personality. A **custom Lottie animation** of the Pine mascot flipping a pancake adds personality and engagement to loading screens.",
+        "layout": "row"
       },
       {
         "heading": "Main Functionality",
         "text": "Pine offers **two core functions**:  \n **Restaurant Finder** – Users select a craving (Asian, Western, fast food, desserts, etc.), and Pine suggests nearby restaurants.  \n **Recipe Finder** – Users can browse recipes, view full ingredient lists, and follow step-by-step instructions.",
+        "layout": "left-column",
         "image": "/images/pine/2Phone.png"
       },
       {
         "heading": "Development & Integration",
-        "text": "The app is powered by **Spoonacular API** for meal recommendations and **Google Maps API** for interactive restaurant listings. A **custom-built database** organizes dish data, and a graph component visualizes nutritional information in real-time."
+        "text": "The app is powered by **Spoonacular API** for meal recommendations and **Google Maps API** for interactive restaurant listings. A **custom-built database** organizes dish data, and a graph component visualizes nutritional information in real-time.",
+        "layout": "right-column",
+        "image": "/images/pine/MapsAPI.png"
       },
       {
         "heading": "Core Features",
-        "text": "**Personalized Quiz** – Gathers user preferences for tailored recommendations.  \n**Restaurant Map (WOW Feature)** – Displays interactive restaurant cards using Google Maps API.  \n**Recipe & Shopping List** – Offers step-by-step instructions and an ingredient list."
+        "text": "**Personalized Quiz** – Gathers user preferences for tailored recommendations.  \n**Restaurant Map (WOW Feature)** – Displays interactive restaurant cards using Google Maps API.  \n**Recipe & Shopping List** – Offers step-by-step instructions and an ingredient list.",
+        "layout": "left-column",
+        "image": "/images/pine/2Features.png"
       },
       {
         "heading": "Conclusion",
-        "text": "Pine simplifies meal planning, ensuring users can quickly discover dining options or cook meals tailored to their needs. This project included a **strong balance of UI/UX design, branding, and technical development**, making it an accessible and user-friendly dining assistant."
+        "text": "Pine simplifies meal planning, ensuring users can quickly discover dining options or cook meals tailored to their needs. This project included a balance of UI/UX design, branding, and technical development, making it an accessible and friendly user-centric application.",
+        "layout": "right-column",
+        "image": "/images/pine/Nutrition.png"
       }
     ]
   },
