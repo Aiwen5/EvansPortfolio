@@ -42,9 +42,12 @@
       </div>
     </div>
 
-    {#if project.externalLink}
-      <div class="external-link-desktop">
-        <ExternalLinkButton link={project.externalLink} />
+    {#if project.externalLinks}
+      <!-- External Links Section -->
+      <div class="external-links">
+        {#each project.externalLinks as link}
+          <ExternalLinkButton link={link.href} text={link.text} />
+        {/each}
       </div>
     {/if}
 
@@ -60,12 +63,6 @@
         {/each}
       </div>
     </div>
-
-    {#if project.externalLink}
-      <div class="external-link-mobile">
-        <ExternalLinkButton link={project.externalLink} />
-      </div>
-    {/if}
 
     <!-- Additional Images Section -->
     <div class="additional-images">
@@ -278,12 +275,9 @@
     grid-column: span 12;
   }
 
-  .external-link-desktop {
+  .external-links {
     display: block;
     margin-left: 3rem;
-  }
-  .external-link-mobile {
-    display: none;
   }
 
   .can-images {
@@ -342,13 +336,14 @@
   }
 
   .branding-row {
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
   }
 
   .branding-row h3 {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    margin-top: 1rem;
   }
 
   .brand-identity {
@@ -476,13 +471,8 @@
       margin-top: 1rem;
     }
 
-    .external-link-desktop {
-      display: none;
-    }
-
-    .external-link-mobile {
-      display: block;
-      margin: 2rem 0;
+    .external-links {
+      margin-left: 0;
     }
 
     .can-images {

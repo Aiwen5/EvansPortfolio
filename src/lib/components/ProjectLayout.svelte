@@ -38,10 +38,12 @@
       </div>
     </div>
 
-    {#if project.externalLink}
-      <!-- Button for Desktop -->
-      <div class="external-link-desktop">
-        <ExternalLinkButton link={project.externalLink} />
+    {#if project.externalLinks}
+      <!-- External Links Section -->
+      <div class="external-links">
+        {#each project.externalLinks as link}
+          <ExternalLinkButton link={link.href} text={link.text} />
+        {/each}
       </div>
     {/if}
 
@@ -61,7 +63,7 @@
     {#if project.externalLink}
       <!-- Button for Mobile, displayed after tools -->
       <div class="external-link-mobile">
-        <ExternalLinkButton link={project.externalLink} />
+        <ExternalLinkButton link={project.externalLink} text="Visit Project" />
       </div>
     {/if}
 
@@ -167,8 +169,13 @@
     text-align: right;
   }
 
-  .external-link-desktop {
+  .external-links {
     margin-left: 3rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    justify-content: left;
+    grid-column: span 12;
   }
 
   .tools {
@@ -233,15 +240,6 @@
   }
 }
 
-/* Show on desktop, hide on mobile */
-.external-link-desktop {
-  display: block;
-}
-
-.external-link-mobile {
-  display: none;
-}
-
 @media (max-width: 768px) {
   .details-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -257,14 +255,9 @@
     margin: 2rem 0;
   }
 
-   /* Hide on mobile, show below tools */
-  .external-link-desktop {
-    display: none;
-  }
-
-  .external-link-mobile {
-    display: block;
-    margin: 2rem 0;
+  .external-links {
+    margin-left: 0;
+    flex-wrap: wrap;
   }
 
   .overview {
