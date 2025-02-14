@@ -42,9 +42,12 @@
       </div>
     </div>
 
-    {#if project.externalLink}
-      <div class="external-link-desktop">
-        <ExternalLinkButton link={project.externalLink} />
+    {#if project.externalLinks}
+      <!-- External Links Section -->
+      <div class="external-links">
+        {#each project.externalLinks as link}
+          <ExternalLinkButton link={link.href} text={link.text} />
+        {/each}
       </div>
     {/if}
 
@@ -60,12 +63,6 @@
         {/each}
       </div>
     </div>
-
-    {#if project.externalLink}
-      <div class="external-link-mobile">
-        <ExternalLinkButton link={project.externalLink} />
-      </div>
-    {/if}
 
     <!-- Additional Images Section -->
     <div class="additional-images">
@@ -94,18 +91,34 @@
     {#if project.caseStudySections}
       <div class="case-study-sections">
         {#each project.caseStudySections as section}
-          <div class="case-study-section">
-            <div class="case-study-content">
-              <h2>{section.heading}</h2>
-              <div class="structured-content">
-                {@html marked(section.text)}
-              </div>
-            </div>
-
-            {#if section.image}
-              <LazyImage src={section.image} alt={section.heading} />
+          <div class="case-study-section {section.layout}">
+            {#if section.layout === "left-column"}
+              <div class="case-study-content text-left"><h2 class="case-study-heading">{section.heading}</h2>{@html marked(section.text)}</div>
+              {#if section.image}
+                <div class="case-study-image">
+                  <LazyImage src={section.image} alt={section.heading} aspectRatio="1 / 1"/>
+                </div>
+              {/if}
             {/if}
-
+    
+            {#if section.layout === "right-column"}
+              {#if section.image}
+                <div class="case-study-image">
+                  <LazyImage src={section.image} alt={section.heading} aspectRatio="1 / 1"/>
+                </div>
+              {/if}
+              <div class="case-study-content text-right"><h2 class="case-study-heading">{section.heading}</h2>{@html marked(section.text)}</div>
+            {/if}
+    
+            {#if section.layout === "row"}
+              <div class="case-study-content text-row"><h2 class="case-study-heading">{section.heading}</h2>{@html marked(section.text)}</div>
+              {#if section.image}
+                <div class="case-study-image">
+                  <LazyImage src={section.image} alt={section.heading} />
+                </div>
+              {/if}
+            {/if}
+    
             {#if section.figmaEmbedLink}
               <div class="figma-embed">
                 <iframe
@@ -262,12 +275,86 @@
   }
 
   .case-study-sections {
-    grid-column: span 12;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.case-study-section {
+  grid-column: span 12;
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.case-study-content {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Left Column Layout */
+.case-study-section.left-column {
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
+
+.case-study-section.left-column .text-left {
+  text-align: left;
+  padding-right: 0;
+}
+
+.case-study-section.left-column .case-study-image {
+  text-align: center;
+}
+
+/* Right Column Layout */
+.case-study-section.right-column {
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+}
+
+.case-study-section.right-column .text-right {
+  text-align: left;
+  padding-left: 0;
+}
+
+.case-study-section.right-column .case-study-image {
+  text-align: center;
+}
+
+/* Row Layout */
+.case-study-section.row {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.case-study-section.row .text-row {
+  text-align: left;
+}
+
+.case-study-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .case-study-section.left-column,
+  .case-study-section.right-column {
+    grid-template-columns: 1fr;
   }
+
+  .case-study-section .case-study-content {
+    text-align: center;
+  }
+
+  .case-study-section .case-study-image {
+    text-align: center;
+  }
+}
 
   .case-study-content {
     padding: 0 3rem;
@@ -278,12 +365,9 @@
     grid-column: span 12;
   }
 
-  .external-link-desktop {
+  .external-links {
     display: block;
     margin-left: 3rem;
-  }
-  .external-link-mobile {
-    display: none;
   }
 
   .can-images {
@@ -342,13 +426,14 @@
   }
 
   .branding-row {
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
   }
 
   .branding-row h3 {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    margin-top: 1rem;
   }
 
   .brand-identity {
@@ -476,13 +561,8 @@
       margin-top: 1rem;
     }
 
-    .external-link-desktop {
-      display: none;
-    }
-
-    .external-link-mobile {
-      display: block;
-      margin: 2rem 0;
+    .external-links {
+      margin-left: 0;
     }
 
     .can-images {

@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-
   export let link: string;
+  export let text: string;
   let isDarkMode = false;
+
+  import { onMount } from 'svelte';
 
   onMount(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -27,14 +28,14 @@
 
 <a href={link} target="_blank" rel="noopener noreferrer" class="external-link-button">
   <div class="button-content">
-    <span>Check it out</span>
+    <span>{text}</span>
     <img src={iconSrc} alt="External Link Icon" class="link-icon {hoverIconClass}" />
   </div>
 </a>
 
 <style>
   .external-link-button {
-    width: 170px;
+    min-width: 170px;
     height: 48px;
     display: inline-flex;
     align-items: center;
@@ -54,6 +55,7 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    gap: 12px;
     padding: 0 12px;
     position: relative;
     z-index: 2;
@@ -62,8 +64,9 @@
 
   .button-content span {
     font-size: 20px;
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     font-weight: 400;
+    text-wrap: nowrap;
     color: var(--primary-accent);
     transition: color 0.33s ease;
   }
