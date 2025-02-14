@@ -60,12 +60,6 @@
       </div>
     </div>
 
-    {#if project.externalLink}
-      <!-- Button for Mobile, displayed after tools -->
-      <div class="external-link-mobile">
-        <ExternalLinkButton link={project.externalLink} text="Visit Project" />
-      </div>
-    {/if}
 
     <!-- Additional Images Section -->
     <div class="additional-images">
