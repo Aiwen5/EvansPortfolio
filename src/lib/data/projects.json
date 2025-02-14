@@ -8,7 +8,7 @@
     "tools": ["Figma", "Next.js", "Node.js", "Spoonacular API", "Google Maps API", "Adobe After Effects", "Adobe Illustrator", "Lottie"],
     "image": "/images/pine/Thumbnail.jpg",
     "categories": ["Development", "UI/UX Design", "Case Study"],
-    "externalLink": "https://pine-app.vercel.app/",
+    "externalLinks": [{"href": "https://pine-app.vercel.app/", "text": "Check It Out"}],
     "branding": {
       "logo": "/images/pine/PineLogo.svg",
       "fonts": [
