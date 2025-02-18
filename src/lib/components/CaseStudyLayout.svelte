@@ -6,6 +6,7 @@
   import { marked } from 'marked';
   import ProjectCard from './ProjectCard.svelte';
   import PinePersona from './PinePersona.svelte';
+  import BeforeAfterSlider from './BeforeAfterSlider.svelte';
 
   export let project;
   export let nextProject;
@@ -127,6 +128,13 @@
                   title={section.heading}
                 ></iframe>
               </div>
+            {/if}
+
+            {#if section.beforeAfterImages}
+              <BeforeAfterSlider 
+                before={section.beforeAfterImages.before} 
+                after={section.beforeAfterImages.after} 
+              />
             {/if}
 
             {#if section.heading === "Problem & Persona"}
