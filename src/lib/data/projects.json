@@ -46,18 +46,33 @@
     "caseStudySections": [
       {
         "heading": "Problem & Persona",
-        "text": "Many people struggle with meal planning—whether it’s deciding where to eat or finding recipes that fit their dietary preferences and budget. **Pine** solves this by offering a streamlined web app that curates both restaurant suggestions and recipe recommendations based on user preferences. \n\nThe app is designed with accessibility and inclusivity in mind, ensuring a seamless experience for all users, including those with dietary restrictions and visual impairments.",
+        "text": "Many people struggle with meal planning—whether it’s deciding where to eat or finding recipes that fit their dietary preferences and budget. **Pine** solves this by offering a streamlined web app that curates both restaurant suggestions and recipe recommendations based on user preferences. \n\nThe app is designed with accessibility and inclusivity in mind, ensuring a seamless experience for all users, including those with dietary restrictions and visual impairments. The ideal user is a busy young professional who values convenience and health but Pine is made for anyone who's hungry.",
         "layout": "row"
       },
       {
-        "heading": "Lo-Fi & User Flow",
-        "text": "The project started with **market research and user personas** to shape the ideal user experience. Low-fidelity wireframes were created in Figma, mapping out key interactions such as onboarding, personalized meal selection, and restaurant discovery. \n\nThe user flow was designed to be intuitive—guiding users from an interactive quiz to tailored recommendations in just a few steps.",
+        "heading": "User Flow",
+        "text": "After the ideal user was established, the flow was designed. The goal was to intuitively guide users through each phase in as few steps as possible.",
         "figmaEmbedLink": "https://www.figma.com/file/CxUggvw8b9vrQTK2ioP5JE/MDIA-2106-Pine?node-id=1522-3685",
         "layout": "row"
       },
       {
+        "heading": "Lo-fi Development",
+        "text": " Low-fidelity wireframes were created in Figma, mapping out key interactions such as onboarding, personalized meal selection, and restaurant discovery.",
+        "beforeAfterImages": {
+          "before": "/images/pine/before.jpg",
+          "after": "/images/pine/after.jpg"
+        },
+        "layout": "row"
+      },
+      {
         "heading": "Branding & Style Guide",
-        "text": "Pine's branding is clean, modern, and inviting. The **earthy color palette** enhances clarity and accessibility, while the **Oswald and Poppins** typefaces ensure readability with some personality. A **custom Lottie animation** of the Pine mascot flipping a pancake adds personality and engagement to loading screens.",
+        "text": "Pine's branding is designed to be inclusive and inviting with a pine-tree mascot and earth-tone colors, while the **Oswald and Poppins** typefaces ensure readability with a bit of personality. A **custom Lottie animation** of the Pine mascot flipping a pancake adds personality and engagement to loading screens.",
+        "layout": "row"
+      },
+      {
+        "heading": "Hi-fi Development",
+        "text": "High-fidelity mockups were created to visualize the final product, showcasing the app’s user interface, interactive elements, and overall aesthetic. The design was refined through user testing to ensure a seamless experience.",
+        "figmaEmbedLink": "https://www.figma.com/design/CxUggvw8b9vrQTK2ioP5JE/MDIA-2106-%E2%80%93-Pine-SET-G-%E2%80%93-Revision?node-id=0-1&t=xBRkuq7UHUCpDJod-1",
         "layout": "row"
       },
       {
