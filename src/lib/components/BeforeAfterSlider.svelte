@@ -10,16 +10,22 @@
     if (!container) return;
 
     const rect = container.getBoundingClientRect();
-    const offsetX =
-      event instanceof TouchEvent
-        ? event.touches[0].clientX - rect.left
-        : event.clientX - rect.left;
+    let offsetX = 0;
+
+    const isTouchEvent = typeof TouchEvent !== "undefined" && event instanceof TouchEvent;
+    
+    if (isTouchEvent) {
+      offsetX = event.touches[0].clientX - rect.left;
+    } else {
+      offsetX = (event as MouseEvent).clientX - rect.left;
+    }
 
     sliderPosition = Math.max(0, Math.min((offsetX / rect.width) * 100, 100));
   }
 
   function startDrag(event: MouseEvent | TouchEvent) {
-    event.preventDefault();
+    event.preventDefault(); // Prevents image dragging and text selection
+    updatePosition(event); // Move slider to click location
     isDragging = true;
 
     document.addEventListener("mousemove", updatePosition);
@@ -36,33 +42,32 @@
     document.removeEventListener("touchend", stopDrag);
   }
 
-  $: clipPathStyle = `polygon(0% 0%, ${sliderPosition}% 0%, ${sliderPosition}% 100%, 0% 100%)`;
+  $: clipPathStyle = `inset(0 ${100 - sliderPosition}% 0 0)`;
 </script>
 
-<div class="before-after-container">
-  <!-- Before Image (Above After Image) -->
+<div
+  class="before-after-container"
+  role="slider"
+  aria-valuenow={sliderPosition}
+  aria-valuemin="0"
+  aria-valuemax="100"
+  tabindex="0"
+  on:mousedown={startDrag}
+  on:touchstart={startDrag}
+>
+  <!-- Before Image -->
   <div class="before-image" style="clip-path: {clipPathStyle};">
-    <img src={before} alt="Before">
+    <img src={before} alt="Before" draggable="false" />
   </div>
 
-  <!-- After Image (Below Before Image) -->
+  <!-- After Image -->
   <div class="after-image">
-    <img src={after} alt="After">
+    <img src={after} alt="After" draggable="false" />
   </div>
 
   <!-- Slider Handle -->
-  <div
-    class="slider"
-    style="left: {sliderPosition}%"
-    role="slider"
-    tabindex="0"
-    aria-valuemin="0"
-    aria-valuemax="100"
-    aria-valuenow={sliderPosition}
-    on:mousedown={startDrag}
-    on:touchstart={startDrag}
-  >
-    <div class="slider-handle"></div>
+  <div class="slider" style="left: {sliderPosition}%;">
+    <div class="handle"></div>
   </div>
 </div>
 
@@ -73,6 +78,7 @@
     height: 40rem;
     overflow: hidden;
     user-select: none;
+    cursor: grab;
   }
 
   .before-image,
@@ -82,6 +88,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    pointer-events: none;
   }
 
   .before-image {
@@ -103,14 +110,14 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 5px;
+    width: 4px;
     background: #e5e1e6;
-    cursor: grab;
     transform: translateX(-50%);
+    cursor: ew-resize;
     z-index: 3;
   }
 
-  .slider-handle {
+  .handle {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -119,8 +126,8 @@
     background: #e5e1e6;
     border-top-right-radius: 6px;
     border-bottom-left-radius: 6px;
+    border: 2px solid #10312b;
     transform: translate(-50%, -50%);
-    border: 1px solid #10312b;
   }
 
   @media (max-width: 1024px) {
@@ -134,9 +141,5 @@
       height: 20rem;
     }
 
-    .slider-handle {
-      width: 20px;
-      height: 20px;
-    }
   }
 </style>
