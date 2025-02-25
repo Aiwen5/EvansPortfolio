@@ -320,7 +320,6 @@
 .case-study-section {
   grid-column: span 12;
   display: grid;
-  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
@@ -456,7 +455,7 @@
     padding: 2rem;
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
-    margin-top: 3rem;
+    margin-top: 1rem;
     text-align: center;
     width: 100%;
   }
