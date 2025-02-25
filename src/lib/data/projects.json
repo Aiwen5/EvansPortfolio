@@ -5,6 +5,7 @@
     "caseStudy": true,
     "overview": "Pine is a web application designed to simplify dining decisions by helping users find restaurants and discover recipes based on their preferences. Pine eliminates the frustration of meal planning, offering personalized recommendations for both dining out and cooking at home.",
     "year": 2024,
+    "roles": ["Lead Designer", "Lead Developer", "Project Manager"],
     "tools": ["Figma", "Next.js", "Node.js", "Spoonacular API", "Google Maps API", "Adobe After Effects", "Adobe Illustrator", "Lottie"],
     "image": "/images/pine/Thumbnail.jpg",
     "categories": ["Development", "UI/UX Design", "Case Study"],
@@ -45,18 +46,18 @@
     },
     "caseStudySections": [
       {
-        "heading": "Problem & Persona",
+        "heading": "01. Problem & Persona",
         "text": "Many people struggle with meal planning—whether it’s deciding where to eat or finding recipes that fit their dietary preferences and budget. **Pine** solves this by offering a streamlined web app that curates both restaurant suggestions and recipe recommendations based on user preferences. \n\nThe app is designed with accessibility and inclusivity in mind, ensuring a seamless experience for all users, including those with dietary restrictions and visual impairments. The ideal user is a busy young professional who values convenience and health but Pine is made for anyone who's hungry.",
         "layout": "row"
       },
       {
-        "heading": "User Flow",
+        "heading": "02. User Flow",
         "text": "After the ideal user was established, the flow was designed. The goal was to intuitively guide users through each phase in as few steps as possible.",
         "figmaEmbedLink": "https://www.figma.com/file/CxUggvw8b9vrQTK2ioP5JE/MDIA-2106-Pine?node-id=1522-3685",
         "layout": "row"
       },
       {
-        "heading": "Lo-fi Development",
+        "heading": "03. Lo-fi Development",
         "text": " Low-fidelity wireframes were created in Figma, mapping out key interactions such as onboarding, personalized meal selection, and restaurant discovery.",
         "beforeAfterImages": {
           "before": "/images/pine/before.jpg",
@@ -65,14 +66,19 @@
         "layout": "row"
       },
       {
-        "heading": "Branding & Style Guide",
+        "heading": "04. Branding & Style Guide",
         "text": "Pine's branding is designed to be inclusive and inviting with a pine-tree mascot and earth-tone colors, while the **Oswald and Poppins** typefaces ensure readability with a bit of personality. A **custom Lottie animation** of the Pine mascot flipping a pancake adds personality and engagement to loading screens.",
         "layout": "row"
       },
       {
-        "heading": "Hi-fi Development",
+        "heading": "05. Hi-fi Development",
         "text": "High-fidelity mockups were created to visualize the final product, showcasing the app’s user interface, interactive elements, and overall aesthetic. The design was refined through user testing to ensure a seamless experience.",
         "figmaEmbedLink": "https://www.figma.com/design/CxUggvw8b9vrQTK2ioP5JE/MDIA-2106-%E2%80%93-Pine-SET-G-%E2%80%93-Revision?node-id=0-1&t=xBRkuq7UHUCpDJod-1",
+        "layout": "row"
+      },
+      {
+        "heading": "06. User Testing",
+        "text": "User testing was conducted to evaluate Pine’s navigation, clarity, and overall user experience. Participants completed task-based scenarios, revealing key areas for improvement, such as clearer ingredient labeling, enhanced discoverability of recipe steps, and improved button placement. Feedback led to refinements in UI elements, terminology, and layout adjustments to ensure a more intuitive and seamless experience.",
         "layout": "row"
       },
       {
@@ -98,6 +104,11 @@
         "text": "Pine simplifies meal planning, ensuring users can quickly discover dining options or cook meals tailored to their needs. This project included a balance of UI/UX design, branding, and technical development, making it an accessible and friendly user-centric application.",
         "layout": "right-column",
         "image": "/images/pine/Nutrition.png"
+      },
+      {
+        "heading": "07. Lessons Learned",
+        "text": "Developing Pine highlighted the importance of user-centered design and iterative testing. User feedback emphasized the need for clear labeling, intuitive navigation, and accessibility considerations. Refining UI elements based on real-world interactions improved the overall experience, reinforcing the value of continuous testing and adaptation in product development.",
+        "layout": "row"
       }
     ]
   },

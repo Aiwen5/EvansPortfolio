@@ -53,14 +53,22 @@
     {/if}
 
     <!-- Tools -->
-    <div class="tools">
-      <div class="tools-header">
-        <h2>Tools</h2>
+    <div class="tools-roles-container">
+      <div class="tools">
+        <div class="tools-header">
+          <h2>Tools</h2>
+        </div>
+        <div class="tool-chips">
+          {#each project.tools as tool}
+            <CategoryChip label={tool} />
+          {/each}
+        </div>
       </div>
-
-      <div class="tool-chips">
-        {#each project.tools as tool}
-          <CategoryChip label={tool} />
+    
+      <div class="roles">
+        <h2>Roles</h2>
+        {#each project.roles as role}
+          <p>{role}</p>
         {/each}
       </div>
     </div>
@@ -137,11 +145,11 @@
               />
             {/if}
 
-            {#if section.heading === "Problem & Persona"}
+            {#if section.heading === "01. Problem & Persona"}
               <PinePersona />
             {/if}
 
-            {#if section.heading === "Branding & Style Guide"}
+            {#if section.heading === "04. Branding & Style Guide"}
               {#if project.branding}
                 <div class="branding-section">
             
@@ -256,9 +264,29 @@
     text-align: right;
   }
 
-  .tools {
+  .tools-roles-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     grid-column: span 12;
+    gap: 2rem;
     margin: 2rem 3rem;
+  }
+
+  .tool-chips {
+    flex: 2;
+  }
+
+  .roles {
+    flex: 1;
+    text-align: right;
+    text-wrap: nowrap;
+    grid-column: span 12;
+    text-align: right;
+  }
+
+  .roles p {
+    margin: 0;
   }
 
   .tools-header {
@@ -559,6 +587,15 @@
       margin: 2rem 0;
     }
 
+    .tools-roles-container {
+      flex-direction: column;
+      gap: 0;
+      margin: 0;
+    }
+
+    .roles {
+      text-align: left;
+    }
     .overview {
       grid-column: span 4;
     }
