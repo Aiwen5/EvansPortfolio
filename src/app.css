@@ -17,6 +17,20 @@
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'Oswald';
+	src: url('/fonts/Oswald-Variable.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
 /* 🌞 Default Light Mode */
 :root {
 	--primary-accent: #10312b; /* Pantone 627 C */
@@ -33,6 +47,9 @@
 
 	--font-body: 'DM Sans', sans-serif;
 	--font-heading: 'Nohemi', sans-serif;
+
+	--font-oswald: 'Oswald', sans-serif;
+	--font-poppins: 'Poppins', sans-serif;
 }
 
 /* Custom Selection Color */
