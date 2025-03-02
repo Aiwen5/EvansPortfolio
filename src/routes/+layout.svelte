@@ -4,6 +4,9 @@
   import ScrollToTop from '$lib/components/ScrollToTop.svelte';
   import Footer from '$lib/components/Footer.svelte';
   import { injectAnalytics } from '@vercel/analytics/sveltekit'
+  import { logStyledMessage } from '../lib/utils/consoleMessage.ts';
+  
+  logStyledMessage();
 </script>
 
 <div class="layout-grid">

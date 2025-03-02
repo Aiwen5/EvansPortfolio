@@ -3,6 +3,7 @@
 
   let isDarkMode = false;
   const email = 'schatzdesigns7@gmail.com';
+  let currentTime = new Date().toLocaleTimeString("en-US");
 
   onMount(() => {
     const savedTheme = localStorage.getItem('theme');
@@ -12,10 +13,18 @@
       isDarkMode = true;
     }
 
+    const interval = setInterval(() => {
+      currentTime = new Date().toLocaleTimeString("en-US");
+    }, 1000);
+
     const observer = new MutationObserver(() => {
       isDarkMode = document.documentElement.classList.contains('dark-mode');
     });
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+    return () => {
+      clearInterval(interval);
+    }
   });
 
   $: logoIconSrc = isDarkMode 
@@ -58,7 +67,7 @@
       </div>
     </a>
 
-    <div class="year">2025 © Evan Schatz</div>
+    <div class="year">2025 © Evan Schatz | {currentTime}</div>
 
     <div class="social-icons">
       <a href="https://www.linkedin.com/in/evan-schatz/" target="_blank" rel="noopener noreferrer">
