@@ -188,6 +188,23 @@
     }
   },
   {
+    "slug": "Relay-Promotional-Video",
+    "title": "Relay Promotional Video",
+    "caseStudy": false,
+    "image": "/images/relay-video/RelayVideoThumbnail.jpg",
+    "categories": ["Marketing", "Videography", "Video Editing"],
+    "externalLinks": [{"href": "https://drive.google.com/file/d/193ki24JhSamZv_oj-9GOjzA5p6x__zew/view?usp=sharing", "text": "Check It Out"}],
+    "year": 2024,
+    "overview": "This promotional video highlights the real-life challenges parents face when arranging transportation for their children and how **Relay** offers a seamless solution. It opens with three contrasting scenarios: a child walking alone in the rain because their parent is too busy to drive, a mother and child stranded at a bus stop when the bus never arrives, and a father forced to stay late at work while his child waits for him. These moments emphasize the stress and uncertainty that come with unreliable transportation. The narrative then shifts to parents using Relay, showcasing how the app connects them for convenient carpooling, ensuring safe and reliable rides. The video’s **cinematic storytelling, and relatable scenarios** bring the benefits of Relay to life, making it an engaging and persuasive tool for parents looking for a dependable rideshare solution.",
+    "tools": ["Adobe Premiere Pro", "Adobe Illustrator"],
+    "upNext": {
+      "slug": "fathom-summer-series",
+      "title": "Fathom Summer Series",
+      "image": "/images/can-design/ThreeCanMockup.png",
+      "categories": ["Graphic Design", "Packaging", "Branding"]
+    }
+  },
+  {
     "slug": "Local-Harvest-Motion-Graphic",
     "title": "Local Harvest Motion Graphic",
     "caseStudy": false,
@@ -195,7 +212,7 @@
     "categories": ["Marketing", "Motion Design", "Animation"],
     "externalLinks": [{"href": "https://drive.google.com/file/d/1NGq74N_F7ytIAaSJdT2AVRAGkOkd7Wa5/view?usp=sharing", "text": "Check It Out"}],
     "year": 2024,
-    "overview": "This motion graphic promotes an app that connects farmers with consumers for pre-ordering goods before market day. It opens with contrasting scenes of overstocked and understocked stalls, immediately highlighting the common challenges farmers face. The narrative then shifts to a farmer discovering the app, followed by consumers placing orders, showcasing how the app reduces waste and improves planning. The video uses bright, geometric visuals and playful animations to make the app feel approachable and user-friendly. Happy customers emphasize the app’s role in building community connections. A cheerful, folk-inspired soundtrack and friendly voiceover create an inviting tone. By visually demonstrating the app’s benefits in a simple, engaging way, the motion graphic effectively captures attention and encourages both farmers and consumers to use Local Harvest.",
+    "overview": "This motion graphic promotes an app that connects farmers with consumers for pre-ordering goods before market day. It opens with contrasting scenes of overstocked and understocked stalls, immediately highlighting the common challenges farmers face. The narrative then shifts to a farmer discovering the app, followed by consumers placing orders, showcasing how the app reduces waste and improves planning. The video uses bright, geometric visuals and playful animations to make the app feel approachable and user-friendly. Happy customers emphasize the app’s role in building community connections. By visually demonstrating the app’s benefits in a simple, engaging way, the motion graphic effectively captures attention and encourages both farmers and consumers to use Local Harvest.",
     "tools": ["Adobe Illustrator", "Adobe After Effects"],
     "upNext": {
       "slug": "fathom-summer-series",
