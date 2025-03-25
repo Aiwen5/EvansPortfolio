@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import projects from '$lib/data/projects.json' assert { type: 'json' };
+  import projects from '$lib/data/projects.json' with { type: 'json' };
   import ProjectCard from '$lib/components/ProjectCard.svelte';
   import LazyImage from '$lib/components/LazyImage.svelte';
   import LazyVideo from '$lib/components/LazyVideo.svelte';
@@ -21,6 +21,8 @@
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   });
 
+  const featuredSlugs = ['pine', 'kenzo-tange-magazine', 'Relay-Promotional-Video'];
+  $: featuredProjects = projects.filter(p => featuredSlugs.includes(p.slug));
   $: videoSrc = isDarkMode ? '/video/role-halo-darkmode.mp4' : '/video/role-halo.mp4';
 </script>
 
@@ -35,8 +37,8 @@
       <LazyImage src="/images/extras/EvanPeeking.png" alt="Evan Schatz Peeking" aspectRatio="256 / 175" />
     </div>
   </div>
-  <h2 class="projects-subtitle">Check out my latest projects</h2>
-  {#each projects as project}
+  <h2 class="projects-subtitle">Check out my featured projects</h2>
+  {#each featuredProjects as project}
     <ProjectCard {project} />
   {/each}
 </div>
