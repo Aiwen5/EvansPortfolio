@@ -82,7 +82,8 @@
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
     padding: 3rem 3.5rem;
-    margin-bottom: -1.5rem;
+    margin-bottom: -4.5rem;
+    margin-top: 3rem;
     width: 100%;
     height: 35rem;
     align-items: center;
@@ -104,7 +105,7 @@
   .tab.pos-1 { left: 5%; }
   .tab.pos-2 { left: 30%; }
   .tab.pos-3 { left: 55%; }
-  .tab.pos-4 { left: 75%; }
+  .tab.pos-4 { left: 80%; }
 
   .card-image {
     margin-right: 2.5rem;
@@ -137,7 +138,12 @@
       flex-direction: column;
       height: auto;
       padding: 3.5rem;
-      margin-bottom: -1rem;
+      padding-bottom: 5rem;
+      margin-bottom: -4.5rem;
+    }
+
+    .tab.pos-4 {
+      left: 65%;
     }
 
     .card-image {
@@ -157,6 +163,12 @@
 
     .project-title {
       font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 440px) {
+    .tab.pos-4 {
+      left: 50%;
     }
   }
 

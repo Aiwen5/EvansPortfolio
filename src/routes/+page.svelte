@@ -21,7 +21,7 @@
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   });
 
-  const featuredSlugs = ['pine', 'kenzo-tange-magazine', 'Relay-Promotional-Video'];
+  const featuredSlugs = ['pine', 'kenzo-tange-magazine', 'playback-studio'];
   $: featuredProjects = projects.filter(p => featuredSlugs.includes(p.slug));
   $: videoSrc = isDarkMode ? '/video/role-halo-darkmode.mp4' : '/video/role-halo.mp4';
 </script>

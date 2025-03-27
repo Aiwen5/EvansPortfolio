@@ -244,5 +244,36 @@
       "image": "/images/can-design/ThreeCanMockup.png",
       "categories": ["Graphic Design", "Packaging", "Branding"]
     }
+  },
+  {
+    "slug": "playback-studio",
+    "title": "Playback Studio",
+    "tabLabel": "Full Stack",
+    "tabPosition": 4,
+    "caseStudy": false,
+    "summary": "Playback Studio is a digital journal designed to help music lovers track their physical music collections. Users can add albums, customize descriptions, and link digital versions using the YouTube API.",
+    "image": "/images/playback-studio/thumbnail.jpg",
+    "images":[
+      { "src": "/images/playback-studio/home.jpg", "type": "normal" },
+      { "src": "/images/playback-studio/AddToCollection.jpg", "type": "normal" },
+      { "src": "/images/playback-studio/SaveToCollection.jpg", "type": "normal" },
+      { "src": "/images/playback-studio/AlbumDetails.jpg", "type": "normal" },
+      { "src": "/images/playback-studio/PhoneIpad.jpg", "type": "normal" }
+    ],
+    "categories": ["Full Stack", "Backend", "Web App"],
+    "year": 2025,
+    "folderColor": "var(--folder-3)",
+    "overview": "Playback Studio is a full stack web application built to help music lovers digitally store and archive their physical music collections. Developed using Express.js and PostgreSQL via Neon.tech, the app dynamically stores and retrieves album data, while EJS templating powers server-side rendering across routes. The YouTube Data API is used to fetch album metadata from user-submitted links, streamlining the process of adding new albums. Middleware like method-override enables RESTful DELETE actions through HTML forms, while partials and layout templating keep UI elements consistent—such as scrolling banners, footers, and toast notifications—remain visible across pages. Responsive CSS, client-side validation, and custom modal popups bring the experience together, resulting in a polished, database-driven platform that functions as both an archive and interface.",
+    "tools": ["Express.js", "PostgreSQL", "EJS", "Neon.tech", "YouTube Data API", "CSS", "JavaScript"],
+    "externalLinks": [
+      {
+        "href": "https://playback-studio.vercel.app",
+        "text": "Live Demo"
+      },
+      {
+        "href": "https://github.com/Aiwen5/playback-studio",
+        "text": "Source Code"
+      }
+    ]
   }
 ]
