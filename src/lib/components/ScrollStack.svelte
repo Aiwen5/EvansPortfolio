@@ -13,6 +13,8 @@
     slug: string;
     caseStudy: boolean;
     folderColor: string;
+    tabLabel: string;
+    tabPosition: number;
   }[] = [];
 
   let containerRef: HTMLDivElement;
@@ -48,9 +50,12 @@
       class="card"
       style="background: {project.folderColor};"
     >
-    <div class="card-image">
-      <LazyImage src={project.image} alt={project.title} aspectRatio=16/11 />
-    </div>
+      <h3 class="tab pos-{project.tabPosition}" style="background: {project.folderColor};">
+        {project.tabLabel}
+      </h3>
+      <div class="card-image">
+        <LazyImage src={project.image} alt={project.title} aspectRatio=16/11 />
+      </div>
       <div class="card-content">
         <h2 class="project-title">{project.title}</h2>
         <div class="chip-container">
@@ -58,6 +63,7 @@
             <CategoryChip label={category} />
           {/each}
         </div>
+        <p class="project-summary">{project.summary}</p>
       </div>
     </a>
   {/each}
@@ -71,14 +77,14 @@
   }
 
   .card {
+    position: relative;
     display: flex;
-    background: var(--card-bg);
     border-top-right-radius: 30px;
     border-bottom-left-radius: 30px;
     padding: 3rem 3.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: -1.5rem;
     width: 100%;
-    height: 30rem;
+    height: 35rem;
     align-items: center;
     flex-direction: row;
     transition: transform 0.1s ease;
@@ -86,6 +92,19 @@
     transform: translateY(0);
     will-change: transform, opacity;
   }
+
+  .tab {
+    position: absolute;
+    top: -2.5rem;
+    height: 3rem;
+    padding: 0.5rem 1rem;
+    border-top-right-radius: 12px;
+  }
+
+  .tab.pos-1 { left: 5%; }
+  .tab.pos-2 { left: 30%; }
+  .tab.pos-3 { left: 55%; }
+  .tab.pos-4 { left: 75%; }
 
   .card-image {
     margin-right: 2.5rem;
@@ -107,6 +126,7 @@
 
   .chip-container {
     margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
@@ -116,14 +136,15 @@
     .card {
       flex-direction: column;
       height: auto;
-      padding: 2rem;
+      padding: 3.5rem;
+      margin-bottom: -1rem;
     }
 
     .card-image {
       width: 100%;
       height: auto;
       margin-right: 0;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0;
     }
 
     .card-content {

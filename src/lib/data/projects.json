@@ -1,6 +1,8 @@
 [
   {
     "title": "Pine",
+    "tabLabel": "Development",
+    "tabPosition": 1,
     "slug": "pine",
     "caseStudy": true,
     "overview": "Pine is a web application designed to simplify dining decisions by helping users find restaurants and discover recipes based on their preferences. Pine eliminates the frustration of meal planning, offering personalized recommendations for both dining out and cooking at home.",
@@ -117,6 +119,8 @@
   {
     "slug": "kenzo-tange-magazine",
     "title": "Kenzo Tange Magazine",
+    "tabLabel": "Graphic Design",
+    "tabPosition": 2,
     "caseStudy": false,
     "summary": "This magazine spread pays tribute to the architectural legacy of Kenzo Tange, emphasizing his influence on modern urban design. A visible grid system structures the layout, reflecting the modularity and precision in Tange’s work while enhancing visual cohesion.",
     "image": "/images/kenzo-magazine/Thumbnail.jpg",
@@ -150,6 +154,8 @@
   {
     "slug": "fathom-summer-series",
     "title": "Fathom Summer Series",
+    "tabLabel": "Packaging",
+    "tabPosition": 3,
     "caseStudy": false,
     "summary": "The Fathom Summer Series was created to capture the essence of summer through a line of craft beers, each inspired by a distinct time of day. Designed for Canadian consumers, the series balances vibrant visuals with bilingual labeling to meet packaging standards while reflecting the adventurous, geometric identity of the Fathom brand.",
     "image": "/images/can-design/Thumbnail.jpg",
@@ -176,6 +182,8 @@
   {
     "slug": "coltrane-ellington",
     "title": "Coltrane and Ellington",
+    "tabLabel": "Poster",
+    "tabPosition": 4,
     "caseStudy": false,
     "summary": "This poster was created to honour jazz icons Duke Ellington and John Coltrane, blending retro and modern elements to pay tribute to their timeless legacy. The orange and purple color palette was chosen to reflect the original album artwork, creating a visual homage to their collaboration.",
     "image": "/images/jazz-poster/MagazineCoverImage.png",
@@ -198,8 +206,10 @@
   {
     "slug": "Relay-Promotional-Video",
     "title": "Relay Promotional Video",
+    "tabLabel": "Videography",
+    "tabPosition": 2,
     "caseStudy": false,
-    "summary": "This promotional video highlights the real-life challenges parents face when arranging transportation for their children and how Relay offers a seamless solution. It opens with three contrasting scenarios: a child walking alone in the rain because their parent is too busy to drive, a mother and child stranded at a bus stop when the bus never arrives, and a father forced to stay late at work while his child waits for him.",
+    "summary": "This promotional video highlights the real-life challenges parents face when arranging transportation for their children and how Relay offers a seamless solution.",
     "image": "/images/relay-video/RelayVideoThumbnail.jpg",
     "categories": ["Marketing", "Videography", "Video Editing"],
     "externalLinks": [{"href": "https://drive.google.com/file/d/193ki24JhSamZv_oj-9GOjzA5p6x__zew/view?usp=sharing", "text": "Check It Out"}],
@@ -217,8 +227,10 @@
   {
     "slug": "Local-Harvest-Motion-Graphic",
     "title": "Local Harvest Motion Graphic",
+    "tabLabel": "Animation",
+    "tabPosition": 3,
     "caseStudy": false,
-    "summary": "This motion graphic promotes an app that connects farmers with consumers for pre-ordering goods before market day. It opens with contrasting scenes of overstocked and understocked stalls, immediately highlighting the common challenges farmers face. The narrative then shifts to a farmer discovering the app, followed by consumers placing orders, showcasing how the app reduces waste and improves planning.",
+    "summary": "This motion graphic promotes an app that connects farmers with consumers for pre-ordering goods before market day. It highlights the common challenges farmers face, showcasing how the app reduces waste and improves planning.",
     "image": "/images/lh-animation/LHAnimationThumbnail.png",
     "categories": ["Marketing", "Motion Design", "Animation"],
     "externalLinks": [{"href": "https://drive.google.com/file/d/1NGq74N_F7ytIAaSJdT2AVRAGkOkd7Wa5/view?usp=sharing", "text": "Check It Out"}],
