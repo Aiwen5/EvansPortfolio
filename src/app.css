@@ -39,7 +39,7 @@
 	--secondary-accent: #efc2b3; /* Pantone 489 C */
 	--hover-accent: rgba(16, 49, 43, 0.55); /* 55% opacity of primary accent */
 	--card-bg: #d0cfd3;
-	--chip-bg: #b9b8ba;
+	--chip-bg: #98959b;
 	--background: #e5e1e6;
 
 	--error-bg: #ffcccc;
@@ -50,6 +50,11 @@
 
 	--font-oswald: 'Oswald', sans-serif;
 	--font-poppins: 'Poppins', sans-serif;
+
+	--folder-1: #d0cfd3;
+	--folder-2: #b2b0b6;
+	--folder-3: #d0cfd3;
+	--folder-4: #b2b0b6;
 }
 
 /* Custom Selection Color */
@@ -77,6 +82,11 @@
 
 	--error-bg: #5a1a1a;
 	--error-text: #ffb3b3;
+
+	--folder-1: #192b27;
+	--folder-2: #101c19;
+	--folder-3: #192b27;
+	--folder-4: #101c19;
 }
 
 html,

@@ -129,6 +129,7 @@
 		"globrex": "^0.1.2",
 		"graceful-fs": "^4.2.11",
 		"graphemer": "^1.4.0",
+		"gsap": "^3.12.7",
 		"has-flag": "^4.0.0",
 		"hasown": "^2.0.2",
 		"https-proxy-agent": "^7.0.6",

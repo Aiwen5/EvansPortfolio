@@ -1,14 +1,12 @@
 <script lang="ts">
-  import ProjectCard from '$lib/components/ProjectCard.svelte';
-  import projects from '$lib/data/projects.json' assert { type: 'json' };
+  import ScrollStack from '$lib/components/ScrollStack.svelte';
+  import projects from '$lib/data/projects.json' with { type: 'json' };
 </script>
 
 <div class="projects-container">
   <h1 class="page-title">Projects</h1>
   <div class="projects-grid">
-    {#each projects as project}
-      <ProjectCard {project} />
-    {/each}
+    <ScrollStack {projects} />
   </div>
 </div>
 
