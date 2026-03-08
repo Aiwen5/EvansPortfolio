@@ -13,7 +13,7 @@
       <p class="about-text">
         Hi, I'm Evan Schatz, an aspiring Digital Designer and Front-end Developer focused on mastering innovative web and mobile solutions. Gaining expertise in front end development; user experience and interface design; as well as SEO and marketing through hands-on project leadership and collaboration.
       </p>
-      <GeneralButton text="View Resume" width="100%" link="https://drive.google.com/file/d/1Ilvq2YZc0Jd0Z2aMlJpyncm1CBKLW_AX/view?usp=sharing" />
+      <GeneralButton text="View Resume" width="100%" link="https://indd.adobe.com/view/7340b677-ed79-4a4a-9fe7-b8465333e98f" />
     </div>
   </div>  
 </div>
