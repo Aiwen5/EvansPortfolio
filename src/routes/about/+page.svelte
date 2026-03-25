@@ -7,11 +7,11 @@
   <h1>About Me</h1>
   <div class="about-content">
     <div class="portrait">
-      <LazyImage src="/images/extras/EvanPortrait.png" alt="Evan Schatz Portrait" aspectRatio="13 / 16" />
+      <LazyImage src="/images/extras/EvanPortrait.png" alt="Evan Schatz Portrait" aspectRatio="11 / 16" />
     </div>
     <div class="text-and-button">
       <p class="about-text">
-        Hi, I'm Evan Schatz, an aspiring Digital Designer and Front-end Developer focused on mastering innovative web and mobile solutions. Gaining expertise in front end development; user experience and interface design; as well as SEO and marketing through hands-on project leadership and collaboration.
+        Hi, I'm Evan Schatz, a User Expirence Designer and Front-end Developer focused on innovative web and mobile solutions. Gaining expertise in front end development; user experience and interface design; as well as SEO and marketing through hands-on project leadership and collaboration.
       </p>
       <GeneralButton text="View Resume" width="100%" link="https://indd.adobe.com/view/7340b677-ed79-4a4a-9fe7-b8465333e98f" />
     </div>
